@@ -1,0 +1,75 @@
+# Entorno local completo: base de datos + pgAdmin + backend + frontend.
+# Funciona sin crear ningún archivo .env (todos los valores tienen un predeterminado de desarrollo).
+name: probosque
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USUARIO:-probosque}
+      POSTGRES_PASSWORD: ${POSTGRES_CONTRASENA:-probosque}
+      POSTGRES_DB: ${POSTGRES_BASE:-probosque}
+    ports:
+      - "5432:5432"
+    volumes:
+      - datos_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USUARIO:-probosque} -d ${POSTGRES_BASE:-probosque}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_CORREO:-admin@probosque.test}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_CONTRASENA:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "5050:80"
+    volumes:
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json:ro
+      - datos_pgadmin:/var/lib/pgadmin
+    depends_on:
+      db:
+        condition: service_healthy
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      URL_BASE_DATOS: postgresql+psycopg://${POSTGRES_USUARIO:-probosque}:${POSTGRES_CONTRASENA:-probosque}@db:5432/${POSTGRES_BASE:-probosque}
+      CLAVE_SECRETA: ${CLAVE_SECRETA:-clave-de-desarrollo-cambiar-en-produccion-0123456789}
+      MINUTOS_INACTIVIDAD: ${MINUTOS_INACTIVIDAD:-30}
+      CARGAR_DATOS_DEMO: ${CARGAR_DATOS_DEMO:-true}
+      ENTORNO: desarrollo
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./docs/formatos:/docs/formatos:ro
+      - archivos:/datos/archivos
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      URL_BACKEND: http://backend:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+
+volumes:
+  datos_db:
+  datos_pgadmin:
+  archivos:
