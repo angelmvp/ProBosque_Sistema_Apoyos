@@ -34,3 +34,13 @@ export interface Sesion {
 export interface BloqueInicio {
   clave: string; titulo: string; descripcion: string; ruta: string;
 }
+export type EstadoSolicitud = "borrador" | "enviada" | "recibida" | "con_faltantes";
+export interface Solicitud {
+  id: number; programa: string; municipio: string; delegacion: string;
+  estado: EstadoSolicitud; creada_en: string; enviada_en: string | null;
+  recibida_en: string | null; folio: string | null; faltantes: RequisitoSolicitud[];
+}
+export interface RequisitoSolicitud {
+  clave: string; nombre: string; descripcion: string; obligatorio: boolean;
+  entregado: boolean; observacion: string;
+}

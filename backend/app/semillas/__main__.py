@@ -2,6 +2,7 @@
 from app.nucleo.base_datos import nueva_sesion
 from app.nucleo.configuracion import obtener_configuracion
 from app.semillas import catalogos, demo, roles
+from app.servicios.requisitos.servicio import asegurar_catalogo
 
 
 def ejecutar() -> None:
@@ -9,6 +10,7 @@ def ejecutar() -> None:
     try:
         catalogos.cargar(sesion)
         roles.cargar(sesion)
+        asegurar_catalogo(sesion)
         if obtener_configuracion().cargar_datos_demo:
             demo.cargar(sesion)
         sesion.commit()

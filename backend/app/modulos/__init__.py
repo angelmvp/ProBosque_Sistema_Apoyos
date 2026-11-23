@@ -3,5 +3,7 @@ from app.modulos.acceso.definicion import DEFINICION as ACCESO
 from app.modulos.convocatorias.definicion import DEFINICION as CONVOCATORIAS
 from app.modulos.dictamenes.definicion import DEFINICION as DICTAMENES
 from app.modulos.expedientes.definicion import DEFINICION as EXPEDIENTES
+from app.modulos.solicitudes.definicion import DEFINICION as SOLICITUDES
+from app.modulos.recepcion.definicion import DEFINICION as RECEPCION
 
-MODULOS = (ACCESO, CONVOCATORIAS, EXPEDIENTES, DICTAMENES)
+MODULOS = (ACCESO, CONVOCATORIAS, EXPEDIENTES, DICTAMENES, SOLICITUDES, RECEPCION)

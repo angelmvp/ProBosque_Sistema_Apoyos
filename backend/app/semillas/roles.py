@@ -14,8 +14,9 @@ CONTRASENA_PRUEBA = "Probosque2026!"
 
 # clave del rol -> (nombre, permisos)
 ROLES = {
-    "solicitante": ("Persona solicitante", ["convocatorias.consultar"]),
-    "delegacion_regional": ("Delegación Regional Forestal", ["expedientes.ver_delegacion"]),
+    "solicitante": ("Persona solicitante", ["convocatorias.consultar", "solicitudes.gestionar_propias"]),
+    "delegacion_regional": ("Delegación Regional Forestal",
+                            ["expedientes.ver_delegacion", "solicitudes.recibir"]),
     "direccion_general": ("Dirección General de PROBOSQUE",
                           ["publicaciones.gestionar", "expedientes.ver_todos"]),
     "direccion_restauracion": ("Dirección de Restauración y Fomento Forestal",

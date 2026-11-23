@@ -58,3 +58,8 @@ JWT en cookie `httpOnly` (`sesion_probosque`), renovada en cada petición autent
 
 ## Archivos
 `servicios/archivos` guarda los PDFs a través de la interfaz `Almacenamiento`. Hoy es disco local (`DIRECTORIO_ARCHIVOS`); migrar a un almacenamiento en la nube es agregar otra clase, sin tocar los módulos.
+## Sprint 2
+
+Se agregan los módulos `solicitudes` (HU-04 a HU-06) y `recepcion` (HU-07). Ambos consumen
+los servicios compartidos `solicitudes` y `requisitos`; ningún módulo importa otro módulo.
+La recepción crea el expediente únicamente cuando acepta una solicitud completa.

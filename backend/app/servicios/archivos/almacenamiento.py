@@ -64,11 +64,11 @@ TIPOS_ARCHIVO = {
     "anexo": "Anexo",
     "otro": "Otro",
 }
-EXTENSIONES_PERMITIDAS = {".pdf", ".docx", ".xlsx"}
+EXTENSIONES_PERMITIDAS = {".pdf", ".docx", ".xlsx", ".jpg", ".jpeg", ".png"}
 
 
 def guardar_archivo(sesion: Session, nombre_original: str, contenido: bytes) -> Archivo:
-    """Guarda un PDF, DOCX o XLSX después de validar extensión, firma y tamaño."""
+    """Guarda un documento después de validar extensión, firma y tamaño."""
     cfg = obtener_configuracion()
     limite = cfg.tamano_maximo_archivo_mb * 1024 * 1024
     nombre_seguro = Path(nombre_original).name[:255] or "documento"
@@ -78,7 +78,7 @@ def guardar_archivo(sesion: Session, nombre_original: str, contenido: bytes) -> 
     if len(contenido) > limite:
         raise DatosInvalidos(f"El archivo supera el tamaño máximo de {cfg.tamano_maximo_archivo_mb} MB.")
     if extension not in EXTENSIONES_PERMITIDAS:
-        raise DatosInvalidos("Solo se permiten archivos PDF, DOCX y XLSX.")
+        raise DatosInvalidos("Solo se permiten archivos PDF, DOCX, XLSX, JPG y PNG.")
     if extension == ".pdf" and not contenido.startswith(b"%PDF"):
         raise DatosInvalidos("El archivo no tiene una firma PDF válida.")
     if extension in {".docx", ".xlsx"}:
@@ -92,6 +92,10 @@ def guardar_archivo(sesion: Session, nombre_original: str, contenido: bytes) -> 
                     raise DatosInvalidos("El archivo no tiene una firma DOCX/XLSX válida.")
         except (zipfile.BadZipFile, KeyError):
             raise DatosInvalidos("El archivo no tiene una firma DOCX/XLSX válida.")
+    if extension in {".jpg", ".jpeg"} and not contenido.startswith(b"\xff\xd8\xff"):
+        raise DatosInvalidos("El archivo no tiene una firma JPG válida.")
+    if extension == ".png" and not contenido.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise DatosInvalidos("El archivo no tiene una firma PNG válida.")
     ruta = obtener_almacenamiento().guardar(contenido, extension)
     archivo = Archivo(
         nombre_original=nombre_seguro,
@@ -100,6 +104,9 @@ def guardar_archivo(sesion: Session, nombre_original: str, contenido: bytes) -> 
             ".pdf": "application/pdf",
             ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            ".jpg": "image/jpeg",
+            ".jpeg": "image/jpeg",
+            ".png": "image/png",
         }[extension],
         tamano_bytes=len(contenido),
         sha256=hashlib.sha256(contenido).hexdigest(),

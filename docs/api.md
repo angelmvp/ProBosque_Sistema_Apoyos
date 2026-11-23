@@ -34,3 +34,19 @@ Documentación interactiva: <http://localhost:8000/docs>. Errores: `{"codigo": "
 
 ## Otros
 `GET /api/expedientes` (alcance por permiso) · `GET /api/dictamenes` (`dictamenes.ver`) · `GET /api/salud`.
+## Solicitudes y recepción (Sprint 2)
+
+- `GET/POST /api/solicitudes`
+- `GET/PUT /api/solicitudes/{id}`
+- `POST /api/solicitudes/{id}/documentos`
+- `DELETE /api/solicitudes/{id}/documentos/{requisito}`
+- `GET /api/solicitudes/{id}/requisitos`
+- `POST /api/solicitudes/{id}/enviar`
+- `GET /api/solicitudes/{id}/acuse`
+- `GET /api/recepcion/solicitudes`
+- `POST /api/recepcion/solicitudes/{id}/recibir`
+- `POST /api/recepcion/solicitudes/{id}/acuse`
+- `GET /api/recepcion/solicitudes/{id}/acuse/archivo`
+
+Los catálogos del asistente se consultan en `/api/solicitudes/catalogos/programas` y
+`/api/solicitudes/catalogos/municipios`.

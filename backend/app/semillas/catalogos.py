@@ -9,12 +9,12 @@ from sqlalchemy.orm import Session
 from app.servicios.catalogo.modelos import Municipio, Programa, Region
 
 PROGRAMAS = [
-    ("capturando_carbono", "Capturando Carbono"),
-    ("manejo_forestal_sustentable", "Manejo Forestal Sustentable"),
-    ("restauracion_hidrologico_forestal", "Restauración Hidrológico-Forestal"),
-    ("servicios_ambientales_hidrologicos", "Servicios Ambientales Hidrológicos"),
-    ("plantaciones_sustentables", "Plantaciones Sustentables"),
-    ("guardabosques", "Programa Estatal de Guardabosques"),
+    ("capturando_carbono", "Capturando Carbono", True),
+    ("manejo_forestal_sustentable", "Manejo Forestal Sustentable", False),
+    ("restauracion_hidrologico_forestal", "Restauración Hidrológico-Forestal", True),
+    ("servicios_ambientales_hidrologicos", "Servicios Ambientales Hidrológicos", False),
+    ("plantaciones_sustentables", "Plantaciones Sustentables", True),
+    ("guardabosques", "Programa Estatal de Guardabosques", False),
 ]
 
 REGIONES = [
@@ -41,9 +41,13 @@ REGIONES = [
 
 def cargar(sesion: Session) -> None:
     existentes = {p.clave for p in sesion.scalars(select(Programa))}
-    for orden, (clave, nombre) in enumerate(PROGRAMAS, start=1):
+    for orden, (clave, nombre, solicitud_en_linea) in enumerate(PROGRAMAS, start=1):
         if clave not in existentes:
-            sesion.add(Programa(clave=clave, nombre=nombre, orden=orden))
+            sesion.add(Programa(clave=clave, nombre=nombre, orden=orden,
+                                solicitud_en_linea=solicitud_en_linea))
+        else:
+            existente = sesion.scalar(select(Programa).where(Programa.clave == clave))
+            existente.solicitud_en_linea = solicitud_en_linea
     regiones = {r.clave: r for r in sesion.scalars(select(Region))}
     municipios = {m.nombre for m in sesion.scalars(select(Municipio))}
     for clave, nombre, descripcion, lista in REGIONES:

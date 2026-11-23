@@ -31,3 +31,9 @@ Nueva migración tras cambiar un modelo:
 docker compose exec backend alembic revision --autogenerate -m "descripcion"
 docker compose exec backend alembic upgrade head
 ```
+## Sprint 2
+
+Las entidades nuevas son `solicitudes`, `requisitos`, `documentos_solicitud`, `recepciones`,
+`folios` y `acuses`. `programas.solicitud_en_linea` controla los programas disponibles para
+el asistente. Los archivos siguen centralizados en `archivos`; un acuse es un archivo inmutable
+relacionado con una solicitud.

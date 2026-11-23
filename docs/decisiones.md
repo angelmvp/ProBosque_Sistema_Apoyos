@@ -23,3 +23,11 @@
 - Los usuarios y contraseñas son de prueba; la `CLAVE_SECRETA` del compose es de desarrollo.
 - Expedientes y dictámenes son marcadores mínimos para demostrar roles.
 - Los PDFs se guardan en disco local.
+## Sprint 2
+
+- Los programas habilitados inicialmente para solicitud en línea son Capturando Carbono,
+  Plantaciones Sustentables y Restauración Hidrológico-Forestal.
+- El folio usa un consecutivo anual simple de cinco dígitos.
+- “Modalidad” se representa provisionalmente mediante programa y tipo de persona; la
+  desagregación exacta por conceptos queda por confirmar.
+- HU-08 (correo, plazo para completar faltantes y notificaciones) queda fuera de este sprint.

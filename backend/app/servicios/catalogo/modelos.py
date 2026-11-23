@@ -11,6 +11,7 @@ class Programa(Base):
     clave: Mapped[str] = mapped_column(String(60), unique=True)
     nombre: Mapped[str] = mapped_column(String(160))
     orden: Mapped[int] = mapped_column(Integer, default=0)
+    solicitud_en_linea: Mapped[bool] = mapped_column(default=False)
 
 
 class Region(Base):
