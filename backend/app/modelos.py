@@ -6,6 +6,6 @@ from app.servicios.autenticacion.modelos import Permiso, Rol, Usuario, roles_per
 from app.servicios.bitacora.modelos import Bitacora  # noqa: F401
 from app.servicios.catalogo.modelos import Municipio, Programa, Region  # noqa: F401
 from app.servicios.expedientes.modelos import Expediente  # noqa: F401
-from app.servicios.publicacion.modelos import Publicacion  # noqa: F401
+from app.servicios.publicacion.modelos import Publicacion, PublicacionArchivo  # noqa: F401
 
 __all__ = ["Base"]

@@ -4,6 +4,7 @@ HU-03-CA-1: al publicar una convocatoria vigente, el portal la muestra en el pro
 HU-03-CA-2: lo ya publicado no se puede despublicar ni modificar; solo los borradores se editan o eliminan.
 """
 import io
+import zipfile
 from datetime import date, timedelta
 
 
@@ -65,6 +66,38 @@ def test_validaciones(como, pdf_valido):
     assert enviar(ok, titulo="  ").status_code == 422
     assert enviar(("a.pdf", io.BytesIO(pdf_valido), "application/pdf"), inicio=hoy, fin=hoy - timedelta(days=1)).status_code == 422
     assert enviar(None, accion="borrador").status_code == 201                            # borrador sin PDF sí
+
+
+def test_varios_archivos_etiquetados_y_docx_xlsx(cliente, como, pdf_valido):
+    """HU-03-CA-1: publica convocatoria, reglas y otro archivo con etiqueta libre."""
+    director = como("direccion.general")
+    hoy = date.today()
+    def zip_valido(rutas):
+        salida = io.BytesIO()
+        with zipfile.ZipFile(salida, "w") as paquete:
+            paquete.writestr("[Content_Types].xml", "<Types/>")
+            for ruta in rutas:
+                paquete.writestr(ruta, "prueba")
+        return salida.getvalue()
+    docx = zip_valido(["word/document.xml"])
+    xlsx = zip_valido(["xl/workbook.xml"])
+    r = director.post("/api/publicaciones", data={
+        "programa": "capturando_carbono", "titulo": "Convocatoria múltiple",
+        "vigencia_inicio": hoy.isoformat(), "vigencia_fin": (hoy + timedelta(days=20)).isoformat(),
+        "accion": "publicar",
+        "tipos": ["convocatoria", "reglas_operacion", "otro"],
+        "etiquetas": ["Convocatoria 2026", "Reglas de operación", "Formato de respaldo"],
+    }, files=[
+        ("archivos", ("convocatoria.pdf", io.BytesIO(pdf_valido), "application/pdf")),
+        ("archivos", ("reglas.docx", io.BytesIO(docx), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")),
+        ("archivos", ("formato.xlsx", io.BytesIO(xlsx), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")),
+    ])
+    assert r.status_code == 201
+    portal = cliente.get("/api/publico/programas/capturando_carbono").json()
+    archivos = {archivo["etiqueta"]: archivo for archivo in portal["publicacion"]["archivos"]}
+    assert archivos["Convocatoria 2026"]["tipo"] == "convocatoria"
+    assert archivos["Reglas de operación"]["tipo"] == "reglas_operacion"
+    assert archivos["Formato de respaldo"]["tipo"] == "otro"
 
 
 def test_la_publicacion_queda_en_bitacora(como, publicar):

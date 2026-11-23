@@ -31,7 +31,9 @@ class Usuario(Base):
     __tablename__ = "usuarios"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     correo: Mapped[str] = mapped_column(String(255), unique=True)
-    nombre: Mapped[str] = mapped_column(String(160))
+    nombre: Mapped[str] = mapped_column(String(80))
+    apellido_paterno: Mapped[str] = mapped_column(String(80), default="")
+    apellido_materno: Mapped[str] = mapped_column(String(80), default="")
     hash_contrasena: Mapped[str] = mapped_column(String(255))
     rol_id: Mapped[int] = mapped_column(ForeignKey("roles.id"))
     # Delegación Regional Forestal a la que pertenece (solo roles de delegación).

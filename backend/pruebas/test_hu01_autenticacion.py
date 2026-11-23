@@ -15,12 +15,39 @@ MENU_ESPERADO = {
     "direccion.restauracion": {"inicio", "dictamenes", "expedientes_todos"},
 }
 
+BLOQUES_ESPERADOS = {
+    "solicitante": {"consultar_convocatorias", "perfil"},
+    "delegacion.toluca": {"expedientes_delegacion", "perfil"},
+    "direccion.general": {"publicaciones", "expedientes_todos", "perfil"},
+    "direccion.restauracion": {"dictamenes", "expedientes_todos", "perfil"},
+}
+
 
 def test_ca1_cada_rol_ve_solo_su_menu(como):
     for usuario, esperado in MENU_ESPERADO.items():
         sesion = como(usuario).get("/api/auth/yo").json()
         claves = {o["clave"] for o in sesion["menu"]}
         assert claves == esperado, f"{usuario}: {claves}"
+
+
+def test_ca1_cada_rol_ve_solo_sus_bloques(como):
+    """HU-01-CA-1: verifica que el inicio contiene exactamente los bloques permitidos."""
+    for usuario, esperado in BLOQUES_ESPERADOS.items():
+        sesion = como(usuario).get("/api/auth/yo").json()
+        claves = {bloque["clave"] for bloque in sesion["bloques"]}
+        assert claves == esperado, f"{usuario}: {claves}"
+
+
+def test_perfil_usuario_para_los_cuatro_roles(como):
+    """HU-01-CA-1: el perfil devuelve nombre dividido y datos del rol."""
+    for usuario in BLOQUES_ESPERADOS:
+        sesion = como(usuario).get("/api/auth/yo").json()
+        assert sesion["nombre"]
+        assert sesion["apellido_paterno"]
+        assert sesion["nombre_completo"].startswith(sesion["nombre"])
+        assert sesion["correo"]
+        assert sesion["rol"]["clave"]
+        assert sesion["permisos"]
 
 
 def test_ca1_cada_rol_ve_solo_su_informacion(como):

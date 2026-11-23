@@ -14,7 +14,7 @@ CONTRASENA_PRUEBA = "Probosque2026!"
 
 # clave del rol -> (nombre, permisos)
 ROLES = {
-    "solicitante": ("Persona solicitante", []),
+    "solicitante": ("Persona solicitante", ["convocatorias.consultar"]),
     "delegacion_regional": ("Delegación Regional Forestal", ["expedientes.ver_delegacion"]),
     "direccion_general": ("Dirección General de PROBOSQUE",
                           ["publicaciones.gestionar", "expedientes.ver_todos"]),
@@ -23,11 +23,10 @@ ROLES = {
 }
 
 USUARIOS = [
-    ("solicitante@probosque.test", "Persona Solicitante de Prueba", "solicitante", None),
-    ("delegacion.toluca@probosque.test", "Delegación Regional Forestal Toluca (prueba)", "delegacion_regional", "I"),
-    ("direccion.general@probosque.test", "Dirección General de PROBOSQUE (prueba)", "direccion_general", None),
-    ("direccion.restauracion@probosque.test", "Dirección de Restauración y Fomento Forestal (prueba)",
-     "direccion_restauracion", None),
+    ("solicitante@probosque.test", "Sofía", "Solicitante", "Prueba", "solicitante", None),
+    ("delegacion.toluca@probosque.test", "Daniel", "Delegación", "Toluca", "delegacion_regional", "I"),
+    ("direccion.general@probosque.test", "Gabriela", "Dirección", "General", "direccion_general", None),
+    ("direccion.restauracion@probosque.test", "Raúl", "Restauración", "Forestal", "direccion_restauracion", None),
 ]
 
 
@@ -49,9 +48,10 @@ def cargar(sesion: Session) -> None:
     sesion.flush()
     regiones = {r.clave: r for r in sesion.scalars(select(Region))}
     existentes = {u.correo for u in sesion.scalars(select(Usuario))}
-    for correo, nombre, clave_rol, clave_region in USUARIOS:
+    for correo, nombre, apellido_paterno, apellido_materno, clave_rol, clave_region in USUARIOS:
         if correo not in existentes:
             sesion.add(Usuario(correo=correo, nombre=nombre, hash_contrasena=generar_hash(CONTRASENA_PRUEBA),
+                               apellido_paterno=apellido_paterno, apellido_materno=apellido_materno,
                                rol_id=roles[clave_rol].id,
                                region_id=regiones[clave_region].id if clave_region else None))
     sesion.flush()

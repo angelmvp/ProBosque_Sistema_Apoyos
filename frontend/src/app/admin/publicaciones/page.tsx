@@ -27,10 +27,11 @@ function Contenido() {
       {filas?.length === 0 && <div className="aviso">Todavía no hay publicaciones.</div>}
       {!!filas?.length && (
         <table>
-          <thead><tr><th>Programa</th><th>Título</th><th>Vigencia</th><th>Estado</th><th>Acciones</th></tr></thead>
+          <thead><tr><th>Programa</th><th>Título</th><th>Archivos</th><th>Vigencia</th><th>Estado</th><th>Acciones</th></tr></thead>
           <tbody>{filas.map((p) => (
             <tr key={p.id}>
               <td>{p.programa_nombre}</td><td>{p.titulo}</td>
+              <td>{p.archivos.length}</td>
               <td>{fechaCorta(p.vigencia_inicio)} – {fechaCorta(p.vigencia_fin)}</td>
               <td><span className={`etiqueta ${p.estado}`}>{ETIQUETA_ESTADO[p.estado] ?? p.estado}</span></td>
               <td className="acciones">

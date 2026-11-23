@@ -44,6 +44,7 @@ Si dos módulos necesitan lo mismo, eso va en un **servicio compartido**.
 ## Permisos y menú
 - Cada módulo declara sus **permisos** (`PermisoDef`) y sus **opciones de menú** (`OpcionMenu`, con permiso opcional).
 - `GET /api/auth/yo` devuelve el menú ya filtrado por los permisos del rol: el frontend solo pinta lo recibido.
+- El mismo contrato declara `bloques_inicio`; `main.py` los agrega al estado de la aplicación y `GET /api/auth/yo` los devuelve ya filtrados por rol.
 - Todo endpoint protegido usa `requiere_permiso("<permiso>")`. Si falta: **403 + registro en bitácora** (HU-01-CA-2). El backend siempre decide; el frontend solo oculta.
 
 ## Sesión

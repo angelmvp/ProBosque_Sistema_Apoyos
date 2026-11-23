@@ -6,6 +6,7 @@
 """
 import ast
 from pathlib import Path
+import runpy
 
 from app.modulos import MODULOS
 
@@ -47,3 +48,22 @@ def test_claves_unicas():
     assert len(claves) == len(set(claves))
     permisos = [p.clave for m in MODULOS for p in m.permisos]
     assert len(permisos) == len(set(permisos))
+
+
+def test_matriz_roles_esta_sincronizada():
+    """La matriz Excel debe representar ROLES y declaraciones actuales."""
+    from openpyxl import load_workbook
+    from app.semillas.roles import ROLES
+
+    namespace = runpy.run_path(str(RAIZ.parents[1] / "scripts" / "generar_matriz_roles.py"))
+    destino = namespace["generar"]()
+    libro = load_workbook(destino)
+    hoja_roles = libro["Roles"]
+    claves_xlsx = {hoja_roles.cell(fila, 1).value for fila in range(2, hoja_roles.max_row + 1)}
+    assert claves_xlsx == set(ROLES)
+
+    matriz = libro["Matriz"]
+    claves = {matriz.cell(fila, 3).value for fila in range(2, matriz.max_row + 1)}
+    permisos = {permiso.clave for modulo in MODULOS for permiso in modulo.permisos}
+    bloques = {bloque.clave for modulo in MODULOS for bloque in modulo.bloques_inicio}
+    assert claves == permisos | bloques

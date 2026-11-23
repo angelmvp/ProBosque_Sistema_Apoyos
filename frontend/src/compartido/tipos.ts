@@ -3,8 +3,14 @@ export type EstadoPublicacion = "borrador" | "programada" | "vigente" | "histori
 
 export interface PublicacionResumen {
   id: number; titulo: string; vigencia_inicio: string; vigencia_fin: string;
-  estado: EstadoPublicacion; url_pdf: string | null; publicada_en: string | null;
+  estado: EstadoPublicacion; url_pdf: string | null; url_visor: string | null;
+  publicada_en: string | null; archivos: ArchivoPublicacion[];
 }
+export interface ArchivoPublicacion {
+  id: number; tipo: TipoArchivo; nombre_tipo: string; etiqueta: string;
+  nombre_original: string; extension: string; url: string;
+}
+export type TipoArchivo = "convocatoria" | "reglas_operacion" | "formato" | "anexo" | "otro";
 export interface ProgramaPortal {
   clave: string; nombre: string; estado: EstadoPrograma; convocatoria_abierta: boolean;
   publicacion: PublicacionResumen | null; ultima_publicada: PublicacionResumen | null;
@@ -21,6 +27,10 @@ export interface PublicacionAdmin extends PublicacionResumen {
 }
 export interface OpcionMenu { clave: string; etiqueta: string; ruta: string }
 export interface Sesion {
-  nombre: string; correo: string; rol: { clave: string; nombre: string };
-  region: Region | null; permisos: string[]; menu: OpcionMenu[]; minutos_inactividad: number;
+  nombre: string; apellido_paterno: string; apellido_materno: string; nombre_completo: string;
+  correo: string; rol: { clave: string; nombre: string };
+  region: Region | null; permisos: string[]; menu: OpcionMenu[]; bloques: BloqueInicio[]; minutos_inactividad: number;
+}
+export interface BloqueInicio {
+  clave: string; titulo: string; descripcion: string; ruta: string;
 }

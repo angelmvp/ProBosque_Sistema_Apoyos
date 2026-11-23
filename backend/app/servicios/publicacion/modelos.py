@@ -16,11 +16,27 @@ class Publicacion(Base):
     titulo: Mapped[str] = mapped_column(String(200))
     vigencia_inicio: Mapped[date] = mapped_column(Date)
     vigencia_fin: Mapped[date] = mapped_column(Date)
-    archivo_id: Mapped[int | None] = mapped_column(ForeignKey("archivos.id"), nullable=True)
     # None mientras es borrador; al publicar se guarda cuándo y quién.
     publicada_en: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     publicada_por_id: Mapped[int | None] = mapped_column(ForeignKey("usuarios.id"), nullable=True)
     creada_por_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
     creada_en: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now)
     programa: Mapped[Programa] = relationship(lazy="joined")
-    archivo: Mapped[Archivo | None] = relationship(lazy="joined")
+    archivos: Mapped[list["PublicacionArchivo"]] = relationship(
+        back_populates="publicacion", lazy="selectin", order_by="PublicacionArchivo.orden"
+    )
+
+
+class PublicacionArchivo(Base):
+    __tablename__ = "publicacion_archivos"
+    publicacion_id: Mapped[int] = mapped_column(
+        ForeignKey("publicaciones.id", ondelete="CASCADE"), primary_key=True
+    )
+    archivo_id: Mapped[int] = mapped_column(
+        ForeignKey("archivos.id", ondelete="RESTRICT"), primary_key=True
+    )
+    tipo: Mapped[str] = mapped_column(String(30))
+    etiqueta: Mapped[str] = mapped_column(String(200))
+    orden: Mapped[int] = mapped_column(Integer, default=0)
+    publicacion: Mapped[Publicacion] = relationship(back_populates="archivos")
+    archivo: Mapped[Archivo] = relationship(lazy="joined")
