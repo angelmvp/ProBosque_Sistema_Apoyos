@@ -15,7 +15,8 @@ from app.nucleo.excepciones import Conflicto, DatosInvalidos, NoEncontrado
 from app.servicios.archivos import almacenamiento
 from app.servicios.bitacora import servicio as bitacora
 from app.servicios.catalogo import servicio as catalogo
-from app.servicios.publicacion.modelos import Publicacion
+from app.servicios.publicacion.modelos import Publicacion, PublicacionArchivo
+from app.servicios.archivos.almacenamiento import TIPOS_ARCHIVO
 
 BORRADOR = "borrador"
 PROGRAMADA = "programada"
@@ -59,8 +60,8 @@ def _exigir_borrador(publicacion: Publicacion) -> None:
 
 
 def _publicar(sesion: Session, publicacion: Publicacion, usuario_id: int) -> None:
-    if publicacion.archivo_id is None:
-        raise DatosInvalidos("Para publicar hay que adjuntar el PDF de la convocatoria.")
+    if not any(relacion.tipo == "convocatoria" for relacion in publicacion.archivos):
+        raise DatosInvalidos("Para publicar hay que adjuntar al menos un archivo de tipo convocatoria.")
     publicacion.publicada_en = datetime.now(UTC)
     publicacion.publicada_por_id = usuario_id
     bitacora.registrar(sesion, accion="publicar", recurso=f"publicacion/{publicacion.id}",
@@ -73,14 +74,15 @@ def crear(sesion: Session, *, usuario_id: int, programa_clave: str, titulo: str,
           contenido_pdf: bytes | None, publicar: bool) -> Publicacion:
     titulo = _validar(titulo, vigencia_inicio, vigencia_fin)
     programa = catalogo.programa_por_clave(sesion, programa_clave)
-    archivo = almacenamiento.guardar_pdf(sesion, nombre_pdf or "convocatoria.pdf", contenido_pdf) \
-        if contenido_pdf else None
     publicacion = Publicacion(programa_id=programa.id, titulo=titulo, vigencia_inicio=vigencia_inicio,
-                              vigencia_fin=vigencia_fin, archivo_id=archivo.id if archivo else None,
-                              creada_por_id=usuario_id)
+                              vigencia_fin=vigencia_fin, creada_por_id=usuario_id)
     sesion.add(publicacion)
     sesion.flush()
     sesion.refresh(publicacion)
+    if contenido_pdf:
+        agregar_archivo(sesion, publicacion, usuario_id=usuario_id,
+                        nombre_original=nombre_pdf or "convocatoria.pdf",
+                        contenido=contenido_pdf, tipo="convocatoria", etiqueta="Convocatoria")
     if publicar:
         _publicar(sesion, publicacion, usuario_id)
     return publicacion
@@ -96,8 +98,9 @@ def actualizar_borrador(sesion: Session, publicacion_id: int, *, usuario_id: int
     publicacion.programa_id = catalogo.programa_por_clave(sesion, programa_clave).id
     publicacion.vigencia_inicio, publicacion.vigencia_fin = vigencia_inicio, vigencia_fin
     if contenido_pdf:
-        publicacion.archivo_id = almacenamiento.guardar_pdf(
-            sesion, nombre_pdf or "convocatoria.pdf", contenido_pdf).id
+        agregar_archivo(sesion, publicacion, usuario_id=usuario_id,
+                        nombre_original=nombre_pdf or "convocatoria.pdf",
+                        contenido=contenido_pdf, tipo="convocatoria", etiqueta="Convocatoria")
     sesion.flush()
     sesion.refresh(publicacion)
     if publicar:
@@ -116,6 +119,82 @@ def eliminar_borrador(sesion: Session, publicacion_id: int) -> None:
     publicacion = obtener(sesion, publicacion_id)
     _exigir_borrador(publicacion)
     sesion.delete(publicacion)
+
+
+def _validar_tipo_etiqueta(tipo: str, etiqueta: str) -> str:
+    if tipo not in TIPOS_ARCHIVO:
+        raise DatosInvalidos("El tipo de archivo no es válido.")
+    etiqueta = etiqueta.strip()
+    if tipo == "otro" and not etiqueta:
+        raise DatosInvalidos("La etiqueta es obligatoria para el tipo otro.")
+    if not etiqueta:
+        etiqueta = TIPOS_ARCHIVO[tipo]
+    if len(etiqueta) > 200:
+        raise DatosInvalidos("La etiqueta no debe pasar de 200 caracteres.")
+    return etiqueta
+
+
+def agregar_archivo(
+    sesion: Session, publicacion: Publicacion, *, usuario_id: int,
+    nombre_original: str, contenido: bytes, tipo: str, etiqueta: str,
+) -> PublicacionArchivo:
+    _exigir_borrador(publicacion)
+    etiqueta = _validar_tipo_etiqueta(tipo, etiqueta)
+    archivo = almacenamiento.guardar_archivo(sesion, nombre_original, contenido)
+    relacion = PublicacionArchivo(
+        publicacion_id=publicacion.id,
+        archivo_id=archivo.id,
+        tipo=tipo,
+        etiqueta=etiqueta,
+        orden=len(publicacion.archivos),
+    )
+    sesion.add(relacion)
+    sesion.flush()
+    sesion.refresh(publicacion)
+    bitacora.registrar(
+        sesion, accion="agregar_archivo", recurso=f"publicacion/{publicacion.id}",
+        resultado="exitoso", usuario_id=usuario_id,
+        detalle=f"archivo={archivo.id};tipo={tipo};etiqueta={etiqueta}",
+    )
+    return relacion
+
+
+def obtener_relacion(publicacion: Publicacion, archivo_id: int) -> PublicacionArchivo:
+    relacion = next((r for r in publicacion.archivos if r.archivo_id == archivo_id), None)
+    if relacion is None:
+        raise NoEncontrado("El archivo no pertenece a la publicación.")
+    return relacion
+
+
+def quitar_archivo(sesion: Session, publicacion_id: int, archivo_id: int, usuario_id: int) -> None:
+    publicacion = obtener(sesion, publicacion_id)
+    _exigir_borrador(publicacion)
+    relacion = obtener_relacion(publicacion, archivo_id)
+    sesion.delete(relacion)
+    sesion.flush()
+    bitacora.registrar(
+        sesion, accion="quitar_archivo", recurso=f"publicacion/{publicacion_id}",
+        resultado="exitoso", usuario_id=usuario_id,
+        detalle=f"archivo={archivo_id}",
+    )
+
+
+def actualizar_archivo(
+    sesion: Session, publicacion_id: int, archivo_id: int, *,
+    usuario_id: int, tipo: str, etiqueta: str,
+) -> PublicacionArchivo:
+    publicacion = obtener(sesion, publicacion_id)
+    _exigir_borrador(publicacion)
+    relacion = obtener_relacion(publicacion, archivo_id)
+    relacion.tipo = tipo
+    relacion.etiqueta = _validar_tipo_etiqueta(tipo, etiqueta)
+    sesion.flush()
+    bitacora.registrar(
+        sesion, accion="editar_archivo", recurso=f"publicacion/{publicacion_id}",
+        resultado="exitoso", usuario_id=usuario_id,
+        detalle=f"archivo={archivo_id};tipo={tipo};etiqueta={relacion.etiqueta}",
+    )
+    return relacion
 
 
 def listar(sesion: Session, programa_clave: str | None = None) -> list[Publicacion]:

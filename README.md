@@ -9,7 +9,7 @@ Sistema web para gestionar los programas de apoyo forestal de PROBOSQUE (Estado 
 | Historia | Qué hace | Documento |
 |---|---|---|
 | HU-01 | Autenticación y 4 roles (sesión de 30 min de inactividad, acceso denegado y bitácora) | [docs/hu-01.md](docs/hu-01.md) |
-| HU-02 | Portal de convocatorias con filtros de región/municipio y visor de PDF único | [docs/hu-02.md](docs/hu-02.md) |
+| HU-02 | Portal de convocatorias con filtros de región/municipio y documentos etiquetados | [docs/hu-02.md](docs/hu-02.md) |
 | HU-03 | Gestión de publicaciones (borrador → publicar; lo publicado no se modifica) | [docs/hu-03.md](docs/hu-03.md) |
 
 ## Cómo correrlo en tu computadora (Windows o Mac)
@@ -45,10 +45,10 @@ Contraseña de todos (solo desarrollo): `Probosque2026!`
 
 | Rol | Correo | Qué puede hacer |
 |---|---|---|
-| Persona solicitante | `solicitante@probosque.test` | Consultar convocatorias |
-| Delegación Regional Forestal (Toluca) | `delegacion.toluca@probosque.test` | Lo anterior + expedientes de su región |
-| Dirección General de PROBOSQUE | `direccion.general@probosque.test` | **Publicar convocatorias** (HU-03) + todos los expedientes |
-| Dirección de Restauración y Fomento Forestal | `direccion.restauracion@probosque.test` | Dictámenes + todos los expedientes |
+| Persona solicitante | `solicitante@probosque.test` | Sofía Solicitante Prueba; consultar convocatorias |
+| Delegación Regional Forestal (Toluca) | `delegacion.toluca@probosque.test` | Daniel Delegación Toluca; expedientes de su región |
+| Dirección General de PROBOSQUE | `direccion.general@probosque.test` | Gabriela Dirección General; publicar convocatorias y consultar todos los expedientes |
+| Dirección de Restauración y Fomento Forestal | `direccion.restauracion@probosque.test` | Raúl Restauración Forestal; dictámenes y todos los expedientes |
 
 Prueba de acceso denegado (HU-01): entra como solicitante y abre <http://localhost:3000/dictamenes>.
 
@@ -73,6 +73,7 @@ docker-compose.yml
 ## Documentación
 - [Arquitectura y cómo extenderla](docs/arquitectura.md) ← **empieza aquí**
 - [Base de datos](docs/base-de-datos.md) · [API](docs/api.md) · [Decisiones y pendientes](docs/decisiones.md) · [Cómo contribuir](docs/contribuir.md)
+- [Matriz de roles](docs/matriz-de-roles.xlsx)
 
 ## Problemas frecuentes
 - **El puerto 5432/3000/8000/5050 ya está en uso:** cierra el programa que lo usa o cambia el puerto izquierdo en `docker-compose.yml`.

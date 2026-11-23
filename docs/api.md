@@ -8,6 +8,8 @@ Documentación interactiva: <http://localhost:8000/docs>. Errores: `{"codigo": "
 | `POST /api/auth/ingresar` | `{correo, contrasena}` → sesión (cookie) |
 | `POST /api/auth/salir` | Cierra la sesión (204) |
 | `GET /api/auth/yo` | Usuario, rol, región, permisos y menú filtrado |
+| Perfil | `nombre`, `apellido_paterno`, `apellido_materno`, `nombre_completo`, correo, rol, región/delegación, permisos, menú y bloques |
+| Inicio | `bloques` contiene solo las tarjetas permitidas para el rol |
 
 ## Portal público (HU-02, sin sesión)
 | Ruta | Descripción |
@@ -25,8 +27,10 @@ Documentación interactiva: <http://localhost:8000/docs>. Errores: `{"codigo": "
 | `GET /api/publicaciones` | Lista (incluye borradores) |
 | `POST /api/publicaciones` | Form: `programa, titulo, vigencia_inicio, vigencia_fin, accion=borrador\|publicar, archivo` |
 | `GET/PUT/DELETE /api/publicaciones/{id}` | Ver; editar y eliminar **solo borradores** (si no, 409) |
+| `GET/DELETE/PATCH /api/publicaciones/{id}/archivos/{archivo_id}` | Descargar, quitar o cambiar tipo/etiqueta de un archivo de borrador |
 | `POST /api/publicaciones/{id}/publicar` | Publica un borrador (necesita PDF) |
-| `GET /api/publicaciones/{id}/pdf` | PDF incluso de borradores |
+| `GET /api/publicaciones/{id}/pdf` | Visor de la convocatoria PDF, incluso de borradores |
+| Públicos `/api/publico/publicaciones/{id}/archivos/{archivo_id}` | Sirve PDF en línea y DOCX/XLSX como descarga |
 
 ## Otros
 `GET /api/expedientes` (alcance por permiso) · `GET /api/dictamenes` (`dictamenes.ver`) · `GET /api/salud`.

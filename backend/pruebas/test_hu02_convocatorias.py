@@ -1,6 +1,6 @@
-"""HU-02 Consulta de convocatorias con filtros de región/municipio y visor de PDF único.
+"""HU-02 Consulta de convocatorias con filtros de región/municipio y documentos etiquetados.
 
-HU-02-CA-1: un programa con convocatoria vigente muestra su PDF y la delegación del municipio elegido.
+HU-02-CA-1: un programa con convocatoria vigente muestra su visor y documentos, y la delegación elegida.
 HU-02-CA-2: un programa sin convocatoria vigente no se muestra como abierto y avisa que no hay convocatoria abierta.
 """
 
@@ -12,6 +12,8 @@ def test_ca1_programa_vigente_muestra_pdf_y_delegacion(cliente, publicar):
     d = cliente.get(f"/api/publico/programas/capturando_carbono?municipio_id={metepec['id']}").json()
     assert d["estado"] == "vigente" and d["convocatoria_abierta"] is True
     assert d["publicacion"]["url_pdf"] == f"/api/publico/publicaciones/{pub['id']}/pdf"
+    assert d["publicacion"]["url_visor"].endswith(f"/archivos/{d['publicacion']['archivos'][0]['id']}")
+    assert d["publicacion"]["archivos"][0]["etiqueta"] == "Convocatoria"
     assert d["delegacion"]["nombre"].startswith("Región I")
     pdf = cliente.get(d["publicacion"]["url_pdf"])
     assert pdf.status_code == 200 and pdf.headers["content-type"] == "application/pdf"

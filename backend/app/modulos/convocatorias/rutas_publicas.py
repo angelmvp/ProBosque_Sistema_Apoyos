@@ -68,10 +68,30 @@ def delegacion(municipio_id: int, sesion: Session = Depends(obtener_sesion)):
 @router.get("/publicaciones/{publicacion_id}/pdf", summary="PDF de una publicación (visor)")
 def pdf_publico(publicacion_id: int, sesion: Session = Depends(obtener_sesion)):
     publicacion = publicaciones.publicacion_publica(sesion, publicacion_id)
-    if publicacion.archivo is None:
-        raise NoEncontrado("La publicación no tiene archivo.")
-    return FileResponse(ruta_de_archivo(publicacion.archivo), media_type="application/pdf",
-                        headers={"Content-Disposition": f'inline; filename="{publicacion.archivo.nombre_original}"'})
+    relacion = next((r for r in publicacion.archivos if r.tipo == "convocatoria"), None)
+    if relacion is None or not relacion.archivo.nombre_original.lower().endswith(".pdf"):
+        raise NoEncontrado("La publicación no tiene una convocatoria PDF.")
+    return FileResponse(ruta_de_archivo(relacion.archivo), media_type="application/pdf",
+                        headers={"Content-Disposition": f'inline; filename="{relacion.archivo.nombre_original}"'})
+
+
+@router.get("/publicaciones/{publicacion_id}/archivos/{archivo_id}", summary="Descargar o mostrar un archivo publicado")
+def archivo_publico(publicacion_id: int, archivo_id: int, sesion: Session = Depends(obtener_sesion)):
+    publicacion = publicaciones.publicacion_publica(sesion, publicacion_id)
+    relacion = publicaciones.obtener_relacion(publicacion, archivo_id)
+    archivo = relacion.archivo
+    extension = archivo.nombre_original.lower()
+    if extension.endswith(".pdf"):
+        return FileResponse(ruta_de_archivo(archivo), media_type="application/pdf",
+                            headers={"Content-Disposition": f'inline; filename="{archivo.nombre_original}"'})
+    if extension.endswith(".docx"):
+        media = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    elif extension.endswith(".xlsx"):
+        media = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    else:
+        raise NoEncontrado("El tipo de archivo no está disponible.")
+    return FileResponse(ruta_de_archivo(archivo), media_type=media,
+                        filename=archivo.nombre_original)
 
 
 @router.get("/formatos/{clave}", summary="Descargar un formato oficial (.docx)")

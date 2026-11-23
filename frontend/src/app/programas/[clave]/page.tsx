@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import { api } from "@/compartido/api";
 import { ETIQUETA_ESTADO, fechaCorta } from "@/compartido/formato";
 import type { DetallePrograma } from "@/compartido/tipos";
+import { ListaArchivosPublicacion } from "@/modulos/convocatorias/ListaArchivosPublicacion";
 
-/** HU-02: detalle de un programa con visor de PDF único, formatos y delegación. */
+/** HU-02: detalle de un programa con visor de convocatoria y documentos etiquetados. */
 export default function PaginaPrograma() {
   const { clave } = useParams<{ clave: string }>();
   const municipio = useSearchParams().get("municipio");
@@ -29,16 +30,27 @@ export default function PaginaPrograma() {
       <span className={`etiqueta ${d.estado}`}>{ETIQUETA_ESTADO[d.estado]}</span>
       <div className="dos-columnas">
         <section>
-          {pub?.url_pdf ? (
+          {pub?.url_visor ? (
             <>
               <h2>{pub.titulo}</h2>
-              <p className="nota">Vigencia: {fechaCorta(pub.vigencia_inicio)} al {fechaCorta(pub.vigencia_fin)} · <a href={pub.url_pdf} target="_blank" rel="noreferrer">Abrir PDF en otra pestaña</a></p>
+              <p className="nota">Vigencia: {fechaCorta(pub.vigencia_inicio)} al {fechaCorta(pub.vigencia_fin)} · <a href={pub.url_visor} target="_blank" rel="noreferrer">Abrir PDF en otra pestaña</a></p>
               {d.estado === "historica" && <div className="aviso">Esta convocatoria ya concluyó. Se muestra solo como consulta.</div>}
-              <iframe className="visor" src={pub.url_pdf} title={`Convocatoria: ${pub.titulo}`} />
+              <iframe className="visor" src={pub.url_visor} title={`Convocatoria: ${pub.titulo}`} />
             </>
           ) : (
-            <div className="aviso">Por ahora no hay una convocatoria abierta para este programa.</div>
+            pub?.archivos.length ? (
+              <>
+                <h2>{pub.titulo}</h2>
+                {d.estado === "historica" && <div className="aviso">Esta convocatoria ya concluyó. Se muestra solo como consulta.</div>}
+              </>
+            ) : <div className="aviso">Por ahora no hay una convocatoria abierta para este programa.</div>
           )}
+          {pub?.archivos.length ? (
+            <section>
+              <h2>Documentos de la convocatoria</h2>
+              <ListaArchivosPublicacion archivos={pub.archivos} />
+            </section>
+          ) : null}
         </section>
         <aside>
           <div className="tarjeta">

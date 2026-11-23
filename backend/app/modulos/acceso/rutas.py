@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, Request, Response
 from sqlalchemy.orm import Session
 
-from app.modulos.acceso.esquemas import SesionSalida, SolicitudIngreso
+from app.modulos.acceso.esquemas import BloqueInicioSalida, SesionSalida, SolicitudIngreso
 from app.nucleo.base_datos import obtener_sesion
 from app.nucleo.configuracion import obtener_configuracion
 from app.servicios.autenticacion import servicio
@@ -21,12 +21,25 @@ def _armar_sesion(sesion: Session, solicitud: Request, usuario: Usuario) -> Sesi
         for o in solicitud.app.state.menu_completo
         if o.permiso is None or o.permiso in permisos
     ]
+    bloques = [
+        BloqueInicioSalida(
+            clave=o.clave, titulo=o.titulo, descripcion=o.descripcion, ruta=o.ruta
+        )
+        for o in solicitud.app.state.bloques_inicio_completos
+        if o.permiso is None or o.permiso in permisos
+    ]
     region = region_por_id(sesion, usuario.region_id) if usuario.region_id else None
+    apellidos = " ".join(p for p in (usuario.apellido_paterno, usuario.apellido_materno) if p)
+    nombre_completo = " ".join(p for p in (usuario.nombre, apellidos) if p)
     return SesionSalida(
-        nombre=usuario.nombre, correo=usuario.correo,
+        nombre=usuario.nombre,
+        apellido_paterno=usuario.apellido_paterno,
+        apellido_materno=usuario.apellido_materno,
+        nombre_completo=nombre_completo,
+        correo=usuario.correo,
         rol={"clave": usuario.rol.clave, "nombre": usuario.rol.nombre},
         region={"id": region.id, "clave": region.clave, "nombre": region.nombre} if region else None,
-        permisos=sorted(permisos), menu=menu,
+        permisos=sorted(permisos), menu=menu, bloques=bloques,
         minutos_inactividad=obtener_configuracion().minutos_inactividad,
     )
 

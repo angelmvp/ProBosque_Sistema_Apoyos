@@ -19,7 +19,9 @@ export function Encabezado() {
       <div className="sesion">
         {cargando ? null : sesion ? (
           <>
-            <span title={sesion.correo}>{sesion.nombre} · <em>{sesion.rol.nombre}</em></span>
+            <Link href="/perfil" title={sesion.correo}>
+              {sesion.nombre_completo} · <em>{sesion.rol.nombre}</em>
+            </Link>
             <button className="boton secundario" onClick={async () => { await salir(); router.push("/"); }}>Salir</button>
           </>
         ) : (

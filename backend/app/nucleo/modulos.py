@@ -27,6 +27,15 @@ class OpcionMenu:
 
 
 @dataclass(frozen=True)
+class BloqueInicio:
+    clave: str
+    titulo: str
+    descripcion: str
+    ruta: str
+    permiso: str | None = None
+
+
+@dataclass(frozen=True)
 class DefinicionModulo:
     clave: str
     nombre: str
@@ -34,3 +43,4 @@ class DefinicionModulo:
     routers: tuple[APIRouter, ...]
     permisos: tuple[PermisoDef, ...] = field(default_factory=tuple)
     menu: tuple[OpcionMenu, ...] = field(default_factory=tuple)
+    bloques_inicio: tuple[BloqueInicio, ...] = field(default_factory=tuple)

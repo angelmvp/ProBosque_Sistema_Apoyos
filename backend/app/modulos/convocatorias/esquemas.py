@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from datetime import date, datetime
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class PublicacionResumen(BaseModel):
@@ -11,6 +13,18 @@ class PublicacionResumen(BaseModel):
     estado: str
     publicada_en: datetime | None = None
     url_pdf: str | None = None
+    url_visor: str | None = None
+    archivos: list["ArchivoPublicacionSalida"] = Field(default_factory=list)
+
+
+class ArchivoPublicacionSalida(BaseModel):
+    id: int
+    tipo: str
+    nombre_tipo: str
+    etiqueta: str
+    nombre_original: str
+    extension: str
+    url: str
 
 
 class ProgramaPortal(BaseModel):

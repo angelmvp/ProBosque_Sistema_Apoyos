@@ -1,4 +1,6 @@
 """Genera un PDF mínimo y válido (sin dependencias) para los datos de demostración."""
+import zipfile
+from io import BytesIO
 
 
 def generar_pdf(titulo: str, lineas: list[str]) -> bytes:
@@ -31,3 +33,23 @@ def generar_pdf(titulo: str, lineas: list[str]) -> bytes:
         salida += f"{posicion:010d} 00000 n \n".encode()
     salida += (f"trailer\n<< /Size {len(objetos) + 1} /Root 1 0 R >>\nstartxref\n{inicio_xref}\n%%EOF\n").encode()
     return bytes(salida)
+
+
+def generar_docx_minimo(titulo: str) -> bytes:
+    salida = BytesIO()
+    with zipfile.ZipFile(salida, "w", zipfile.ZIP_DEFLATED) as paquete:
+        paquete.writestr("[Content_Types].xml",
+                         '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"></Types>')
+        paquete.writestr("word/document.xml",
+                         f'<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>{titulo}</w:t></w:r></w:p></w:body></w:document>')
+    return salida.getvalue()
+
+
+def generar_xlsx_minimo(titulo: str) -> bytes:
+    salida = BytesIO()
+    with zipfile.ZipFile(salida, "w", zipfile.ZIP_DEFLATED) as paquete:
+        paquete.writestr("[Content_Types].xml",
+                         '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"></Types>')
+        paquete.writestr("xl/workbook.xml",
+                         '<?xml version="1.0"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheets/></workbook>')
+    return salida.getvalue()

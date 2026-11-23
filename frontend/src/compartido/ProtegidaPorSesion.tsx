@@ -4,11 +4,14 @@ import type { ReactNode } from "react";
 import { useSesion } from "@/modulos/acceso/ContextoSesion";
 
 /** Muestra el contenido solo con sesión (y permiso, si se indica); si no, la pantalla de acceso denegado. */
-export function ProtegidaPorSesion({ permiso, children }: { permiso?: string; children: ReactNode }) {
+export function ProtegidaPorSesion({ permiso, permisos, children }: {
+  permiso?: string; permisos?: string[]; children: ReactNode
+}) {
   const { sesion, cargando, tiene } = useSesion();
   if (cargando) return <p>Cargando…</p>;
   if (!sesion) return <div className="aviso">Necesitas iniciar sesión. <Link href="/ingresar">Ingresar</Link></div>;
-  if (permiso && !tiene(permiso)) return <PantallaAccesoDenegado />;
+  const permitido = permiso ? tiene(permiso) : !permisos || permisos.some((valor) => tiene(valor));
+  if (!permitido) return <PantallaAccesoDenegado />;
   return <>{children}</>;
 }
 

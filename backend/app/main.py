@@ -12,6 +12,9 @@ from app.nucleo.excepciones import ErrorNegocio
 async def ciclo_de_vida(app: FastAPI):
     # Menú y permisos declarados por los módulos; la ruta /api/auth/yo los usa.
     app.state.menu_completo = [opcion for modulo in MODULOS for opcion in modulo.menu]
+    app.state.bloques_inicio_completos = [
+        bloque for modulo in MODULOS for bloque in modulo.bloques_inicio
+    ]
     yield
 
 
