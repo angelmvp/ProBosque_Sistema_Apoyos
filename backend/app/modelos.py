@@ -7,7 +7,11 @@ from app.servicios.bitacora.modelos import Bitacora  # noqa: F401
 from app.servicios.catalogo.modelos import Municipio, Programa, Region  # noqa: F401
 from app.servicios.expedientes.modelos import Expediente  # noqa: F401
 from app.servicios.publicacion.modelos import Publicacion, PublicacionArchivo  # noqa: F401
-from app.servicios.requisitos.modelos import DocumentoSolicitud, Requisito  # noqa: F401
-from app.servicios.solicitudes.modelos import Acuse, Folio, Recepcion, Solicitud  # noqa: F401
+from app.servicios.requisitos.modelos import (  # noqa: F401
+    ConceptoSuperficie, DocumentoSolicitud, Requisito, SuperficieSolicitud,
+)
+from app.servicios.solicitudes.modelos import (  # noqa: F401
+    Acuse, ContadorFolio, Folio, Recepcion, Solicitud,
+)
 
 __all__ = ["Base"]

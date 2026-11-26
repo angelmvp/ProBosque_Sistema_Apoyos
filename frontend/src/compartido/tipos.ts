@@ -36,11 +36,16 @@ export interface BloqueInicio {
 }
 export type EstadoSolicitud = "borrador" | "enviada" | "recibida" | "con_faltantes";
 export interface Solicitud {
-  id: number; programa: string; municipio: string; delegacion: string;
+  id: number; programa: string; programa_clave: string; municipio: string; delegacion: string;
   estado: EstadoSolicitud; creada_en: string; enviada_en: string | null;
   recibida_en: string | null; folio: string | null; faltantes: RequisitoSolicitud[];
+  datos_501: Record<string, unknown>; datos_502: Record<string, unknown>;
+  aviso_privacidad: boolean; nombre_solicitante: string; correo_solicitante: string;
+  acuse_disponible: boolean; observacion_recepcion: string;
 }
 export interface RequisitoSolicitud {
   clave: string; nombre: string; descripcion: string; obligatorio: boolean;
-  entregado: boolean; observacion: string;
+  numero: number | null; grupo: string; aplica: boolean; entregado: boolean; observacion: string;
+  archivo_id?: number | null; archivo_nombre?: string | null; archivo_tamano?: number | null;
+  url_archivo?: string | null;
 }

@@ -15,6 +15,15 @@ erDiagram
     ARCHIVO ||--o{ PUBLICACION_ARCHIVO : asociado
     USUARIO ||--o{ PUBLICACION : crea_publica
     USUARIO ||--o{ BITACORA : genera
+    USUARIO ||--o{ SOLICITUD : inicia
+    SOLICITUD ||--o{ DOCUMENTO_SOLICITUD : checklist
+    REQUISITO ||--o{ DOCUMENTO_SOLICITUD : define
+    ARCHIVO ||--o{ DOCUMENTO_SOLICITUD : adjunto
+    SOLICITUD ||--o{ SUPERFICIE_SOLICITUD : captura
+    CONCEPTO_SUPERFICIE ||--o{ SUPERFICIE_SOLICITUD : catálogo
+    SOLICITUD ||--o| FOLIO : recibe
+    SOLICITUD ||--o| RECEPCION : revisa
+    SOLICITUD ||--o| ACUSE : genera
 ```
 
 - **Región = Delegación Regional Forestal** (9 regiones, I a IX). Domicilio, teléfono y horario están vacíos: *por confirmar*.
@@ -37,3 +46,7 @@ Las entidades nuevas son `solicitudes`, `requisitos`, `documentos_solicitud`, `r
 `folios` y `acuses`. `programas.solicitud_en_linea` controla los programas disponibles para
 el asistente. Los archivos siguen centralizados en `archivos`; un acuse es un archivo inmutable
 relacionado con una solicitud.
+
+La migración `0005` añade a `requisitos` número, grupo y condiciones de programa/tipo de persona; agrega `conceptos_superficie` y `superficies_solicitud` para guardar hectáreas por clave; `contadores_folio` conserva el consecutivo anual bajo actualización atómica; y las tres marcas del checklist se guardan en `recepciones`. Los datos JSON `solicitudes.datos_501` y `datos_502` mantienen los campos del formulario con su estructura anidada.
+
+Documentos de solicitud conservan metadatos en `archivos` y asociación en `documentos_solicitud`. El tamaño máximo predeterminado es 10 MB, configurable con `TAMANO_MAXIMO_DOCUMENTO_MB`; los documentos aceptan PDF/JPG/PNG. Los adjuntos de publicaciones mantienen la política de tipos propia del módulo de publicaciones.

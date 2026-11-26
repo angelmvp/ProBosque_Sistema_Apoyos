@@ -116,6 +116,42 @@ def guardar_archivo(sesion: Session, nombre_original: str, contenido: bytes) -> 
     return archivo
 
 
+def guardar_documento_solicitud(sesion: Session, nombre_original: str, contenido: bytes) -> Archivo:
+    """Valida documentos de solicitud (PDF/JPG/PNG) por extensión y firma real."""
+    cfg = obtener_configuracion()
+    limite = cfg.tamano_maximo_documento_mb * 1024 * 1024
+    nombre_seguro = Path(nombre_original).name[:255] or "documento"
+    extension = Path(nombre_seguro).suffix.lower()
+    if not contenido:
+        raise DatosInvalidos("El archivo está vacío.")
+    if len(contenido) > limite:
+        raise DatosInvalidos(
+            f"El archivo supera el tamaño máximo de {cfg.tamano_maximo_documento_mb} MB."
+        )
+    firmas = {
+        ".pdf": (b"%PDF", "application/pdf"),
+        ".jpg": (b"\xff\xd8\xff", "image/jpeg"),
+        ".jpeg": (b"\xff\xd8\xff", "image/jpeg"),
+        ".png": (b"\x89PNG\r\n\x1a\n", "image/png"),
+    }
+    if extension not in firmas:
+        raise DatosInvalidos("Solo se permiten archivos PDF, JPG y PNG.")
+    firma, tipo_mime = firmas[extension]
+    if not contenido.startswith(firma):
+        raise DatosInvalidos(f"El archivo no tiene una firma {extension[1:].upper()} válida.")
+    ruta = obtener_almacenamiento().guardar(contenido, extension)
+    archivo = Archivo(
+        nombre_original=nombre_seguro,
+        ruta_relativa=ruta,
+        tipo_mime=tipo_mime,
+        tamano_bytes=len(contenido),
+        sha256=hashlib.sha256(contenido).hexdigest(),
+    )
+    sesion.add(archivo)
+    sesion.flush()
+    return archivo
+
+
 def ruta_de_archivo(archivo: Archivo) -> Path:
     ruta = obtener_almacenamiento().ruta_absoluta(archivo.ruta_relativa)
     if not ruta.is_file():

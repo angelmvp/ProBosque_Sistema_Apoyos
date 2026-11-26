@@ -12,6 +12,17 @@ Sistema web para gestionar los programas de apoyo forestal de PROBOSQUE (Estado 
 | HU-02 | Portal de convocatorias con filtros de región/municipio y documentos etiquetados | [docs/hu-02.md](docs/hu-02.md) |
 | HU-03 | Gestión de publicaciones (borrador → publicar; lo publicado no se modifica) | [docs/hu-03.md](docs/hu-03.md) |
 
+## Flujo de solicitudes (Sprint 2 · HU-04 a HU-07)
+
+La persona solicitante crea un borrador y completa un asistente de cinco pasos: FO-PB-501-A, FO-PB-502, documentos de identidad/representación, propiedad/requisitos del programa, y revisión/envío. Los documentos adjuntos aceptan PDF, JPG y PNG (máximo predeterminado 10 MB); el FO-PB-502 se captura en línea, no se adjunta. Al enviar, la solicitud queda bloqueada para edición. La Delegación Regional revisa su bandeja, registra faltantes o recibe el expediente; la recepción completa asigna el folio y habilita la descarga del acuse PDF.
+
+| Historia | Qué hace | Documento |
+|---|---|---|
+| HU-04 | Asistente y captura de formularios 501/502 | [docs/hu-04.md](docs/hu-04.md) |
+| HU-05 | Documentos de identidad/representación y checklist condicional | [docs/hu-05.md](docs/hu-05.md) |
+| HU-06 | Propiedad/requisitos del programa, revisión y envío | [docs/hu-06.md](docs/hu-06.md) |
+| HU-07 | Recepción regional, folio y acuse PDF | [docs/hu-07.md](docs/hu-07.md) |
+
 ## Cómo correrlo en tu computadora (Windows o Mac)
 
 ### 1. Instalar (una sola vez)
@@ -33,7 +44,7 @@ La primera vez tarda unos minutos. Funciona **sin crear ningún `.env`**. Cuando
 |---|---|
 | Sistema (portal) | <http://localhost:3000> |
 | API y documentación interactiva | <http://localhost:8000/docs> |
-| pgAdmin | <http://localhost:5050> (usuario `admin@probosque.test`, contraseña `admin`) |
+| pgAdmin | <http://localhost:5050> (usuario `admin@probosque.com`, contraseña `admin`) |
 | PostgreSQL | `localhost:5432` · usuario/contraseña/base: `probosque` |
 
 En pgAdmin el servidor "PROBOSQUE (local)" ya aparece; pide la contraseña `probosque`.
@@ -59,7 +70,7 @@ Con el sistema levantado:
 ```bash
 docker compose exec backend pytest -q
 ```
-Hay una prueba por cada criterio de aceptación (HU-01-CA-1 … HU-03-CA-2), pruebas de validaciones y **pruebas de arquitectura** que impiden romper la estructura (por ejemplo, que un módulo importe a otro). Usan una base separada (`probosque_pruebas`), nunca la de desarrollo.
+Hay pruebas de aceptación HU-01–HU-07, pruebas de validaciones y **pruebas de arquitectura** que impiden romper la estructura (por ejemplo, que un módulo importe a otro). Usan una base separada (`probosque_pruebas`), nunca la de desarrollo.
 
 ## Estructura del repositorio
 ```

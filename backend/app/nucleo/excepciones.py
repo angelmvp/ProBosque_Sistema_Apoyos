@@ -5,9 +5,10 @@ class ErrorNegocio(Exception):
     codigo_http = 400
     codigo = "error_negocio"
 
-    def __init__(self, mensaje: str):
+    def __init__(self, mensaje: str, campos: list[dict[str, str]] | None = None):
         super().__init__(mensaje)
         self.mensaje = mensaje
+        self.campos = campos or []
 
 
 class NoEncontrado(ErrorNegocio):

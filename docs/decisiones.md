@@ -25,9 +25,20 @@
 - Los PDFs se guardan en disco local.
 ## Sprint 2
 
-- Los programas habilitados inicialmente para solicitud en línea son Capturando Carbono,
-  Plantaciones Sustentables y Restauración Hidrológico-Forestal.
-- El folio usa un consecutivo anual simple de cinco dígitos.
-- “Modalidad” se representa provisionalmente mediante programa y tipo de persona; la
-  desagregación exacta por conceptos queda por confirmar.
-- HU-08 (correo, plazo para completar faltantes y notificaciones) queda fuera de este sprint.
+- Los programas habilitados para solicitud en línea son Capturando Carbono, Plantaciones Sustentables y Restauración Hidrológico-Forestal. PSAHEM queda catalogado, pero no se habilita.
+- El asistente omite el paso FO-PB-520-B, el programa Guardabosques y HU-08 (correo/plazo de subsanación y notificaciones).
+- El folio se asigna al recibir la Delegación; usa consecutivo anual de cinco dígitos. La recepción genera el acuse PDF persistente y el expediente.
+- Los archivos de solicitudes aceptan PDF/JPG/PNG, máximo configurable de 10 MB (`TAMANO_MAXIMO_DOCUMENTO_MB`). Publicaciones conservan DOCX/XLSX.
+- El backend valida tipo y firma real del archivo; PDF por `%PDF`, JPG por firma JPEG, PNG por firma PNG.
+- Condiciones implementadas: identificación/CURP/propiedad para todos; documentos 5 y 6 para núcleo agrario; 7 para sociedad; documento 8 opcional; 9 para RHF; 10 para Capturando Carbono y mantenimiento navideño; 11 permanece no habilitado con PSAHEM.
+
+### Por confirmar con PROBOSQUE / profesor
+
+- Variantes finales del FO-PB-501-A, obligatoriedad legal de campos del 501/502 y representación digital de la firma.
+- Confirmar si todos los campos impresos del 502 deben ser obligatorios; en esta versión son opcionales número interior, referencias, teléfono fijo y red social. Ambos apellidos son obligatorios.
+- Requisitos adicionales según especie, tipo de persona, refrendo, modalidad o convocatoria; documento 8 se muestra como opcional y no bloquea.
+- Comprobante de domicilio cuando la identificación no muestra domicilio; reglas definitivas para refrendos (por ahora no se implementa sustituir anexos por folio).
+- El límite/formato de 10 MB es el valor de desarrollo pedido; confirmar límites oficiales y formatos con PROBOSQUE.
+- Regla de redondeo y tratamiento de superficies; se exige que los conceptos no excedan superficie total. PSAHEM mantiene año de convenio/observaciones como conceptos no habilitados.
+- La pantalla de confirmación muestra el folio pendiente hasta recepción; validar el texto/estado final de acuse con operación.
+- Enviar correo y establecer plazo de atención para documentos faltantes pertenecen a HU-08.

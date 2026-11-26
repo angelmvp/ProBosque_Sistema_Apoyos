@@ -1,7 +1,12 @@
 /** Cliente HTTP mínimo. Todas las rutas son relativas (/api/...) y la cookie de sesión viaja sola. */
 
 export class ErrorApi extends Error {
-  constructor(public estado: number, public codigo: string, mensaje: string) {
+  constructor(
+    public estado: number,
+    public codigo: string,
+    mensaje: string,
+    public campos: { campo: string; mensaje: string }[] = [],
+  ) {
     super(mensaje);
   }
 }
@@ -11,7 +16,7 @@ async function procesar<T>(respuesta: Response): Promise<T> {
   const cuerpo = await respuesta.json().catch(() => null);
   if (!respuesta.ok) {
     const mensaje = cuerpo?.mensaje ?? (typeof cuerpo?.detail === "string" ? cuerpo.detail : "Ocurrió un error inesperado.");
-    throw new ErrorApi(respuesta.status, cuerpo?.codigo ?? "error", mensaje);
+    throw new ErrorApi(respuesta.status, cuerpo?.codigo ?? "error", mensaje, cuerpo?.campos ?? []);
   }
   return cuerpo as T;
 }

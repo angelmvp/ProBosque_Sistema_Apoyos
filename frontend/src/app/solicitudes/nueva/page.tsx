@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { api } from "@/compartido/api";
 import { ProtegidaPorSesion } from "@/compartido/ProtegidaPorSesion";
@@ -8,6 +9,7 @@ import { ProtegidaPorSesion } from "@/compartido/ProtegidaPorSesion";
 type Opcion = { id: number; nombre: string };
 
 function Contenido() {
+  const router = useRouter();
   const [programas, setProgramas] = useState<Opcion[]>([]);
   const [municipios, setMunicipios] = useState<Opcion[]>([]);
   const [programa, setPrograma] = useState("");
@@ -23,7 +25,7 @@ function Contenido() {
       const solicitud = await api.enviarJson<{ id: number }>("/api/solicitudes", {
         programa_id: Number(programa), municipio_id: Number(municipio),
       });
-      setMensaje(`Solicitud ${solicitud.id} creada. Ya puedes completar sus formularios y documentos.`);
+      router.push(`/solicitudes/${solicitud.id}/paso/1`);
     } catch (e) { setMensaje((e as Error).message); }
   }
   return (

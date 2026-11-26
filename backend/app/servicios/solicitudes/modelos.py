@@ -35,6 +35,9 @@ class Recepcion(Base):
     solicitud_id: Mapped[int] = mapped_column(ForeignKey("solicitudes.id", ondelete="CASCADE"), unique=True)
     receptor_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
     observacion: Mapped[str] = mapped_column(Text, default="")
+    solicitud_completa: Mapped[bool] = mapped_column(default=False)
+    documentos_legibles: Mapped[bool] = mapped_column(default=False)
+    corresponden_al_programa: Mapped[bool] = mapped_column(default=False)
     recibida_en: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
@@ -46,6 +49,12 @@ class Folio(Base):
     solicitud_id: Mapped[int] = mapped_column(ForeignKey("solicitudes.id"), unique=True)
     valor: Mapped[str] = mapped_column(String(40), unique=True)
     __table_args__ = (UniqueConstraint("anio", "consecutivo", name="uq_folio_anio_consecutivo"),)
+
+
+class ContadorFolio(Base):
+    __tablename__ = "contadores_folio"
+    anio: Mapped[int] = mapped_column(Integer, primary_key=True)
+    consecutivo: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
 
 
 class Acuse(Base):

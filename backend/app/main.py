@@ -2,6 +2,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from app.modulos import MODULOS
@@ -32,7 +33,20 @@ def crear_app() -> FastAPI:
     @app.exception_handler(ErrorNegocio)
     async def manejar_error_negocio(_: Request, error: ErrorNegocio):
         return JSONResponse(status_code=error.codigo_http,
-                            content={"codigo": error.codigo, "mensaje": error.mensaje})
+                            content={"codigo": error.codigo, "mensaje": error.mensaje,
+                                     "campos": error.campos})
+
+    @app.exception_handler(RequestValidationError)
+    async def manejar_validacion_peticion(_: Request, error: RequestValidationError):
+        campos = [{
+            "campo": ".".join(str(parte) for parte in detalle["loc"][1:]),
+            "mensaje": detalle["msg"],
+        } for detalle in error.errors()]
+        return JSONResponse(
+            status_code=422,
+            content={"codigo": "datos_invalidos", "mensaje": "Revisa los datos enviados.",
+                     "campos": campos},
+        )
 
     @app.get("/api/salud", tags=["Sistema"], summary="Comprobación de que la API responde")
     def salud():

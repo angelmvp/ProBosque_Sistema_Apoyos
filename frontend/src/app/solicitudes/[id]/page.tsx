@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { api } from "@/compartido/api";
 import type { RequisitoSolicitud, Solicitud } from "@/compartido/tipos";
 import { ProtegidaPorSesion } from "@/compartido/ProtegidaPorSesion";
 
 function Contenido() {
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
   const [solicitud, setSolicitud] = useState<Solicitud | null>(null);
   const [requisitos, setRequisitos] = useState<RequisitoSolicitud[]>([]);
   const [datos, setDatos] = useState({ curp: "", codigo_postal: "", telefono_celular: "" });
@@ -20,6 +22,11 @@ function Contenido() {
     api.obtener<RequisitoSolicitud[]>(`/api/solicitudes/${id}/requisitos`).then(setRequisitos).catch((e) => setMensaje(e.message));
   };
   useEffect(() => { cargar(); }, [id]);
+  useEffect(() => {
+    if (!solicitud) return;
+    router.replace(solicitud.estado === "borrador"
+      ? `/solicitudes/${id}/paso/1` : `/solicitudes/${id}/confirmacion`);
+  }, [id, router, solicitud]);
   async function guardar(evento: FormEvent) {
     evento.preventDefault();
     try { await api.enviarJson(`/api/solicitudes/${id}`, { datos_502: datos, aviso_privacidad: true }, "PUT"); setMensaje("Datos guardados."); cargar(); }

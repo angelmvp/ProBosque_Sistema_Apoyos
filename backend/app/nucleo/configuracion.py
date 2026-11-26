@@ -19,6 +19,7 @@ class Configuracion(BaseSettings):
     directorio_archivos: Path = RAIZ_BACKEND / "almacenamiento"
     directorio_formatos: Path = RAIZ_BACKEND.parent / "docs" / "formatos"
     tamano_maximo_pdf_mb: int = 20
+    tamano_maximo_documento_mb: int = 10
     tamano_maximo_archivo_mb: int = Field(
         default=20,
         validation_alias=AliasChoices("tamano_maximo_archivo_mb", "TAMANO_MAXIMO_ARCHIVO_MB",

@@ -36,17 +36,20 @@ Documentación interactiva: <http://localhost:8000/docs>. Errores: `{"codigo": "
 `GET /api/expedientes` (alcance por permiso) · `GET /api/dictamenes` (`dictamenes.ver`) · `GET /api/salud`.
 ## Solicitudes y recepción (Sprint 2)
 
-- `GET/POST /api/solicitudes`
-- `GET/PUT /api/solicitudes/{id}`
-- `POST /api/solicitudes/{id}/documentos`
-- `DELETE /api/solicitudes/{id}/documentos/{requisito}`
-- `GET /api/solicitudes/{id}/requisitos`
-- `POST /api/solicitudes/{id}/enviar`
-- `GET /api/solicitudes/{id}/acuse`
-- `GET /api/recepcion/solicitudes`
-- `POST /api/recepcion/solicitudes/{id}/recibir`
-- `POST /api/recepcion/solicitudes/{id}/acuse`
-- `GET /api/recepcion/solicitudes/{id}/acuse/archivo`
+- `GET/POST /api/solicitudes`: lista solicitudes propias / crea borrador con `programa_id` y `municipio_id`.
+- `GET/PUT /api/solicitudes/{id}`: consulta propia / guarda bloques parciales `datos_501`, `datos_502` y `aviso_privacidad`.
+- `GET /api/solicitudes/catalogos/programas`, `/municipios`, `/conceptos?programa=`: opciones disponibles para el asistente.
+- `POST /api/solicitudes/{id}/pasos/{1..5}/validar`: valida el paso antes de avanzar.
+- `GET /api/solicitudes/{id}/resumen`: estados de los pasos 1–4 y si el expediente puede enviarse.
+- `GET /api/solicitudes/{id}/requisitos`: checklist numerado y filtrado por programa/tipo de persona, incluidos metadatos de archivo.
+- `POST /api/solicitudes/{id}/documentos`: multipart `requisito` + `archivo` (PDF/JPG/PNG, hasta 10 MB por defecto).
+- `DELETE /api/solicitudes/{id}/documentos/{requisito}` y `GET /api/solicitudes/{id}/documentos/{requisito}/archivo`: reemplazo mediante nueva carga, quitar y ver/descargar.
+- `POST /api/solicitudes/{id}/enviar`: revalida 501/502 y checklist obligatorio, registra envío y bitácora.
+- `GET /api/solicitudes/{id}/acuse`: descarga el acuse persistente cuando la solicitud ya fue recibida.
+- `GET /api/recepcion/solicitudes?programa=&estado=&municipio=&fecha_desde=&fecha_hasta=`: bandeja de solicitudes de la región autenticada.
+- `GET /api/recepcion/solicitudes/{id}`: datos 501/502 y documentos de solicitudes dentro de la región.
+- `GET /api/recepcion/solicitudes/{id}/documentos/{requisito}/archivo`: ver/descargar documento desde recepción.
+- `POST /api/recepcion/solicitudes/{id}/recibir`: recibe `{solicitud_completa, documentos_legibles, corresponden_al_programa, observacion, faltantes:[{requisito,observacion}]}`. Si está completa, crea folio, expediente y acuse; si faltan documentos, conserva `con_faltantes` sin folio/acuse.
+- `GET /api/recepcion/solicitudes/{id}/acuse/archivo`: vista/descarga del PDF.
 
-Los catálogos del asistente se consultan en `/api/solicitudes/catalogos/programas` y
-`/api/solicitudes/catalogos/municipios`.
+Todos los errores 422 incluyen `{"codigo":"datos_invalidos","mensaje":"...","campos":[{"campo":"...","mensaje":"..."}]}`. Las rutas privadas verifican propietario o región en backend.
