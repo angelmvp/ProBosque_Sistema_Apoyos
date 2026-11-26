@@ -13,7 +13,7 @@ function Contenido() {
     api.obtener<Solicitud[]>("/api/solicitudes").then(setSolicitudes).catch((e) => setError(e.message));
   }, []);
   return (
-    <>
+    <div className="sprint2-page solicitudes-page">
       <div className="encabezado-pagina">
         <div><p className="eyebrow">SOLICITUDES DE APOYO</p><h1>Mis solicitudes</h1></div>
         <Link className="boton" href="/solicitudes/nueva">Nueva solicitud</Link>
@@ -30,7 +30,7 @@ function Contenido() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

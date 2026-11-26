@@ -27,10 +27,10 @@ function Contenido() {
     } catch (e) { setMensaje((e as Error).message); }
   }
   return (
-    <>
+    <div className="sprint2-page solicitud-nueva-page">
       <p className="eyebrow">NUEVA SOLICITUD</p><h1>Iniciar solicitud de apoyo</h1>
       <p className="nota">Primero selecciona el programa y el municipio del predio.</p>
-      <form className="formulario" onSubmit={crear}>
+      <form className="formulario solicitud-nueva-formulario" onSubmit={crear}>
         <label>Programa<select required value={programa} onChange={(e) => setPrograma(e.target.value)}>
           <option value="">Selecciona un programa</option>{programas.map((item) => <option key={item.id} value={item.id}>{item.nombre}</option>)}
         </select></label>
@@ -41,7 +41,7 @@ function Contenido() {
       </form>
       {mensaje && <p className="nota">{mensaje}</p>}
       <Link href="/solicitudes">Volver a mis solicitudes</Link>
-    </>
+    </div>
   );
 }
 

@@ -36,22 +36,42 @@ function Contenido() {
     try { await api.accion(`/api/solicitudes/${id}/enviar`); setMensaje("Solicitud enviada a tu delegación."); cargar(); }
     catch (e) { setMensaje((e as Error).message); }
   }
-  if (!solicitud) return <p>{mensaje || "Cargando solicitud..."}</p>;
+  if (!solicitud) return <div className="sprint2-page solicitud-detalle-page"><p>{mensaje || "Cargando solicitud..."}</p></div>;
   const editable = solicitud.estado === "borrador";
-  return <><Link href="/solicitudes">← Mis solicitudes</Link><p className="eyebrow">SOLICITUD {solicitud.id}</p>
-    <h1>{solicitud.programa}</h1><p className="nota">{solicitud.municipio} · {solicitud.estado}</p>
-    {mensaje && <p className="nota">{mensaje}</p>}
-    {editable && <form className="formulario" onSubmit={guardar}><h2>Registro de información (502)</h2>
-      <label>CURP<input value={datos.curp} onChange={(e) => setDatos({ ...datos, curp: e.target.value })} maxLength={18} /></label>
-      <label>Código postal<input value={datos.codigo_postal} onChange={(e) => setDatos({ ...datos, codigo_postal: e.target.value })} maxLength={5} /></label>
-      <label>Teléfono celular<input value={datos.telefono_celular} onChange={(e) => setDatos({ ...datos, telefono_celular: e.target.value })} maxLength={10} /></label>
-      <button className="boton" type="submit">Guardar datos</button></form>}
-    <h2>Documentos</h2><ul>{requisitos.map((item) => <li key={item.clave}>{item.nombre}: {item.entregado ? "Entregado" : "Pendiente"}</li>)}</ul>
-    {editable && <form className="formulario" onSubmit={subir}><label>Requisito<select value={requisito} onChange={(e) => setRequisito(e.target.value)}>{requisitos.map((item) => <option key={item.clave} value={item.clave}>{item.nombre}</option>)}</select></label>
-      <input type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setArchivo(e.target.files?.[0] ?? null)} /><button className="boton" type="submit">Agregar documento</button></form>}
-    {editable && <button className="boton" onClick={enviar}>Enviar solicitud</button>}
-    {solicitud.folio && <p>Folio: <strong>{solicitud.folio}</strong></p>}
-  </>;
+  return (
+    <div className="sprint2-page solicitud-detalle-page">
+      <Link href="/solicitudes">← Mis solicitudes</Link>
+      <div className="solicitud-detalle-cabecera">
+        <p className="eyebrow">SOLICITUD {solicitud.id}</p>
+        <h1>{solicitud.programa}</h1>
+        <p className="nota">{solicitud.municipio} · {solicitud.estado}</p>
+        {solicitud.folio && <p className="nota">Folio asignado: <strong>{solicitud.folio}</strong></p>}
+      </div>
+      {mensaje && <p className="nota">{mensaje}</p>}
+      {editable && <form className="formulario solicitud-detalle-formulario" onSubmit={guardar}>
+        <h2>Registro de información (502)</h2>
+        <label>CURP<input value={datos.curp} onChange={(e) => setDatos({ ...datos, curp: e.target.value })} maxLength={18} /></label>
+        <label>Código postal<input value={datos.codigo_postal} onChange={(e) => setDatos({ ...datos, codigo_postal: e.target.value })} maxLength={5} /></label>
+        <label>Teléfono celular<input value={datos.telefono_celular} onChange={(e) => setDatos({ ...datos, telefono_celular: e.target.value })} maxLength={10} /></label>
+        <button className="boton" type="submit">Guardar datos</button>
+      </form>}
+      <section className="tarjeta solicitud-documentos">
+        <h2>Documentos</h2>
+        <ul>{requisitos.map((item) => (
+          <li key={item.clave}>
+            <span>{item.nombre}</span>
+            <span className={`sprint2-estado${item.entregado ? "" : " pendiente"}`}>{item.entregado ? "Entregado" : "Pendiente"}</span>
+          </li>
+        ))}</ul>
+      </section>
+      {editable && <form className="formulario solicitud-subir-documento" onSubmit={subir}>
+        <label>Requisito<select value={requisito} onChange={(e) => setRequisito(e.target.value)}>{requisitos.map((item) => <option key={item.clave} value={item.clave}>{item.nombre}</option>)}</select></label>
+        <label>Archivo<input type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setArchivo(e.target.files?.[0] ?? null)} /></label>
+        <button className="boton" type="submit">Agregar documento</button>
+      </form>}
+      {editable && <button className="boton" onClick={enviar}>Enviar solicitud</button>}
+    </div>
+  );
 }
 
 export default function DetalleSolicitud() { return <ProtegidaPorSesion><Contenido /></ProtegidaPorSesion>; }

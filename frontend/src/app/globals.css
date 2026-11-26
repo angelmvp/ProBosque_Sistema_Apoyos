@@ -50,3 +50,183 @@ th, td { padding: .6rem; border-bottom: 1px solid var(--borde); text-align: left
 .accion-rol small { color: var(--ambar); margin-top: .35rem; font-weight: 600; }
 .accion-pendiente { font: inherit; border: 1px dashed var(--borde); opacity: .8; }
 @media (max-width: 700px) { .perfil-rejilla { grid-template-columns: 1fr; } }
+
+/* Sprint 2: keep this visual refresh isolated from the existing Sprint 1 screens. */
+.sprint2-page {
+  --s2-verde: #1f4d3a;
+  --s2-verde-claro: #e1f0e6;
+  --s2-texto: #1f2a24;
+  --s2-gris: #4a5a52;
+  --s2-borde: #c9d2cc;
+  --s2-fondo: #f4f6f3;
+  width: calc(100% + 3rem);
+  min-height: 70vh;
+  margin: -1.5rem;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: 12px;
+  background: var(--s2-fondo);
+  color: var(--s2-texto);
+}
+.sprint2-page h1 { color: var(--s2-texto); font-size: clamp(1.65rem, 3vw, 2rem); line-height: 1.2; }
+.sprint2-page h2 { margin: 0; color: var(--s2-verde); font-size: 1.1rem; }
+.sprint2-page .eyebrow {
+  margin: 0 0 .4rem;
+  color: var(--s2-gris);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sprint2-page .nota { color: var(--s2-gris); }
+.sprint2-page .encabezado-pagina {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sprint2-page .boton {
+  border-color: var(--s2-verde);
+  border-radius: 7px;
+  background: var(--s2-verde);
+  font-weight: 600;
+  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.sprint2-page .boton:hover:not(:disabled) { background: #173d2e; filter: none; }
+.sprint2-page .boton:focus-visible,
+.sprint2-page a:focus-visible,
+.sprint2-page input:focus-visible,
+.sprint2-page select:focus-visible {
+  outline: 3px solid #8ab89b;
+  outline-offset: 2px;
+}
+.sprint2-page .boton:active:not(:disabled) { transform: translateY(1px); }
+.sprint2-page .boton.secundario { color: var(--s2-verde); border-color: var(--s2-verde); }
+.sprint2-page .tarjeta {
+  gap: .75rem;
+  border-color: var(--s2-borde);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgb(31 77 58 / 5%);
+}
+.sprint2-page .lista-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.sprint2-page .lista-tarjetas > a.tarjeta {
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.sprint2-page .lista-tarjetas > a.tarjeta:hover {
+  border-color: #8aab96;
+  box-shadow: 0 8px 20px rgb(31 77 58 / 10%);
+  transform: translateY(-2px);
+}
+.sprint2-page .alerta,
+.sprint2-page .sprint2-mensaje {
+  display: block;
+  padding: .65rem .85rem;
+  border: 1px solid #f0c9bd;
+  border-radius: 7px;
+  background: #fff0eb;
+  color: #803b2d;
+  font-size: .9rem;
+}
+.sprint2-page .formulario {
+  width: 100%;
+  max-width: 760px;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.sprint2-page .formulario > label,
+.sprint2-page .formulario .campo {
+  color: var(--s2-texto);
+  font-size: .9rem;
+  font-weight: 600;
+}
+.sprint2-page input,
+.sprint2-page select {
+  min-height: 44px;
+  border-color: #aab8af;
+  border-radius: 7px;
+  color: var(--s2-texto);
+}
+.sprint2-page input[type="file"] { width: 100%; padding: .55rem; }
+.sprint2-page .solicitud-nueva-formulario,
+.sprint2-page .solicitud-detalle-formulario {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sprint2-page .solicitud-nueva-formulario > button,
+.sprint2-page .solicitud-detalle-formulario > h2,
+.sprint2-page .solicitud-detalle-formulario > button {
+  grid-column: 1 / -1;
+}
+.sprint2-page .solicitud-nueva-formulario {
+  max-width: 820px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--s2-borde);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(31 77 58 / 5%);
+}
+.sprint2-page .solicitud-detalle-cabecera { margin: 1rem 0 1.5rem; }
+.sprint2-page .solicitud-detalle-cabecera > p:last-child { margin-bottom: 0; }
+.sprint2-page .solicitud-detalle-formulario {
+  max-width: 900px;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--s2-borde);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(31 77 58 / 5%);
+}
+.sprint2-page .solicitud-documentos { max-width: 900px; margin: 1.25rem 0; }
+.sprint2-page .solicitud-documentos ul { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.sprint2-page .solicitud-documentos li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid #e3e8e4;
+}
+.sprint2-page .sprint2-estado {
+  flex: 0 0 auto;
+  padding: .25rem .65rem;
+  border-radius: 999px;
+  background: var(--s2-verde-claro);
+  color: var(--s2-verde);
+  font-size: .78rem;
+  font-weight: 700;
+}
+.sprint2-page .sprint2-estado.pendiente {
+  background: #fff0eb;
+  color: #803b2d;
+}
+.sprint2-page .solicitud-subir-documento {
+  max-width: 900px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--s2-borde);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(31 77 58 / 5%);
+}
+.sprint2-page .recepcion-tarjeta > strong { color: var(--s2-verde); font-size: 1.05rem; }
+.sprint2-page .recepcion-tarjeta > span:not(.sprint2-estado) { color: var(--s2-gris); }
+.sprint2-page .recepcion-tarjeta .boton { align-self: flex-start; margin-top: .25rem; }
+
+@media (max-width: 700px) {
+  .sprint2-page { border-radius: 0; }
+  .sprint2-page .encabezado-pagina { align-items: flex-start; flex-direction: column; }
+  .sprint2-page .solicitud-nueva-formulario,
+  .sprint2-page .solicitud-detalle-formulario,
+  .sprint2-page .solicitud-subir-documento { grid-template-columns: 1fr; }
+  .sprint2-page .solicitud-nueva-formulario > button,
+  .sprint2-page .solicitud-detalle-formulario > h2,
+  .sprint2-page .solicitud-detalle-formulario > button { grid-column: auto; }
+  .sprint2-page .solicitud-documentos li { align-items: flex-start; flex-direction: column; }
+}

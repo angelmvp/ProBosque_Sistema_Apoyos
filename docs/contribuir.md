@@ -7,3 +7,14 @@
 - Cambios en la base: migración Alembic, nunca editar tablas a mano.
 - Cada criterio de aceptación nuevo (`HU-XX-CA-N`) lleva su prueba con ese nombre en el docstring.
 - Regenera la matriz de roles con `python scripts/generar_matriz_roles.py` desde la raíz; requiere `openpyxl` y genera `docs/matriz-de-roles.xlsx`.
+
+2
+4
+2
+3
+1
+1
+2
+2
+2
+4

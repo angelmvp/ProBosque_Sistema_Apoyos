@@ -15,13 +15,23 @@ function Contenido() {
     try { await api.enviarJson(`/api/recepcion/solicitudes/${id}/recibir`, {}); setMensaje("Solicitud procesada."); cargar(); }
     catch (e) { setMensaje((e as Error).message); }
   }
-  return <><p className="eyebrow">DELEGACIÓN REGIONAL</p><h1>Recepción de solicitudes</h1>
+  return <div className="sprint2-page recepcion-page">
+    <p className="eyebrow">DELEGACIÓN REGIONAL</p>
+    <h1>Recepción de solicitudes</h1>
     {mensaje && <p className="nota">{mensaje}</p>}
-    <div className="lista-tarjetas">{items.map((item) => <article className="tarjeta" key={item.id}>
-      <strong>{item.programa}</strong><span>{item.municipio} · {item.estado}</span>
-      {item.faltantes.length ? <span className="alerta">Tiene requisitos faltantes</span> :
-        <button className="boton" onClick={() => recibir(item.id)}>Recibir y generar folio</button>}
-    </article>)}</div></>;
+    <div className="lista-tarjetas">{items.map((item) => <article className="tarjeta recepcion-tarjeta" key={item.id}>
+      <strong>{item.programa}</strong>
+      <span>{item.municipio} · {item.estado}</span>
+      {item.faltantes.length ? (
+        <span className="sprint2-estado pendiente">Requisitos faltantes: {item.faltantes.length}</span>
+      ) : (
+        <>
+          <span className="sprint2-estado">Documentación completa</span>
+          <button className="boton" onClick={() => recibir(item.id)}>Recibir y generar folio</button>
+        </>
+      )}
+    </article>)}</div>
+  </div>;
 }
 
 export default function RecepcionPage() {
