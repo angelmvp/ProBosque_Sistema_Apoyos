@@ -1,0 +1,10 @@
+{
+  "version": "operacion-local-v1",
+  "max_solicitudes_dia": 1200,
+  "intervalo_solicitudes_segundos": 1.0,
+  "vigencia_diagnostico_horas": 168,
+  "max_trabajos_pendientes": 8,
+  "max_reintentos_trabajo": 3,
+  "espera_reintento_segundos": 30,
+  "lado_bloque_px": 800
+}

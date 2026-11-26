@@ -1,0 +1,62 @@
+{
+  "completo": true,
+  "resolucion_m": 20,
+  "version": "scl-temporal-v1",
+  "periodos": [
+    {
+      "periodo": "2024-B6",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 999435,
+      "pct_elegible_entre_observados": 99.4051218600062,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    },
+    {
+      "periodo": "2025-B1",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 932838,
+      "pct_elegible_entre_observados": 92.78129649816593,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    },
+    {
+      "periodo": "2025-B2",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 1003953,
+      "pct_elegible_entre_observados": 99.85448809249107,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    },
+    {
+      "periodo": "2023",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 982176,
+      "pct_elegible_entre_observados": 97.68851898119783,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    },
+    {
+      "periodo": "2024",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 894368,
+      "pct_elegible_entre_observados": 88.95501961377181,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    },
+    {
+      "periodo": "2025",
+      "pixeles_observados_al_menos_un_dia": 1005416,
+      "pixeles_cumplen_minimo_temporal": 947105,
+      "pct_elegible_entre_observados": 94.20031111500116,
+      "superficie_forestal_ha": null,
+      "margen_nubes_40m_aplicado": false,
+      "estado": "calidad_temporal_scl_sin_clasificacion"
+    }
+  ],
+  "limite": "Porcentaje entre píxeles observados en alguna fecha. No mide área forestal ni incluye margen espacial de nubes; es un límite optimista de elegibilidad."
+}

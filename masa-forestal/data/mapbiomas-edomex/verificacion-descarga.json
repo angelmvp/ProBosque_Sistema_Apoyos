@@ -1,0 +1,11 @@
+{
+  "municipios": 125,
+  "anios_municipio": 1250,
+  "archivos_sha256_verificados": 253,
+  "max_error_conservacion_ha": 3.245077095925808e-08,
+  "periodos_area_sin_cartografiar": 0,
+  "periodos_sin_bosque": 20,
+  "fecha_inicio_utc": "2026-11-26T19:11:13.711947+00:00",
+  "fecha_actualizacion_utc": "2026-11-26T19:11:34.170924+00:00",
+  "forestValidated": false
+}

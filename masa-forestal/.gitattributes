@@ -1,0 +1,9 @@
+# Las fuentes de datos se verifican por SHA-256: conservar sus bytes al clonar.
+data/** -text whitespace=cr-at-eol
+web/prototipo/dist/data/** -text whitespace=cr-at-eol
+config/metodologia-forestal.json -text whitespace=cr-at-eol
+*.py text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.md text eol=lf
+*.ps1 text eol=lf

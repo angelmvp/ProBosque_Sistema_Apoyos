@@ -1,0 +1,203 @@
+{
+  "version": "maf-s2-v0.1.0-experimental",
+  "estado": "calculo_de_area_implementado_validacion_forestal_no_aprobada",
+  "fuentes_publicas_confirmadas_por_usuario": true,
+  "modelo_entrenado": false,
+  "validacion_empirica_completa": false,
+  "publicar_estimaciones_validadas": false,
+  "calculo_superficie": {
+    "version": "area-clasificada-v1",
+    "magnitud": "superficie_en_hectareas",
+    "formula": "sum(area_celda_m2 * indicador_clase * indicador_calidad) / 10000",
+    "fuente_formula": "https://developers.google.com/earth-engine/tutorials/tutorial_forest_03",
+    "modulo": "scripts/calculo_superficie.py",
+    "resultado_pruebas": "data/piloto/calculo-superficie/resultado.json",
+    "dictamen": "data/piloto/validacion/dictamen-validacion-calculo.json",
+    "conservar_fracciones_de_borde": true,
+    "cambio_sobre_soporte_comun": true,
+    "rango_datos_ausentes_es_intervalo_confianza": false,
+    "habilita_publicacion_forestal": false
+  },
+  "referencias_validacion": {
+    "estado": "reserva_y_qa_preparadas_sin_etiquetas_revisadas",
+    "muestras_reservadas": 300,
+    "revisiones_por_muestra": 6,
+    "revisiones_documentadas": 0,
+    "catalogo_landsat_registros": 272,
+    "escenas_qa_comprobadas": 26,
+    "fuentes": "data/piloto/validacion/fuentes.json",
+    "muestras": "data/piloto/validacion/muestras-reservadas.geojson",
+    "calidad_evidencias": "data/piloto/validacion/calidad-evidencias.json",
+    "auditoria": "data/piloto/validacion/auditoria.json",
+    "historial_preparado": "data/piloto/historial-piloto.json",
+    "usar_reserva_para_entrenar": false,
+    "interpretacion_uso_suelo_completada": false
+  },
+  "experimento_auxiliar": {
+    "estado": "dos_modelos_entrenados_sin_validacion_forestal",
+    "anio": 2021,
+    "frecuencias": ["bimestral", "anual"],
+    "objetivo": "clase_10_worldcover_frente_a_otras_coberturas",
+    "fuente_etiquetas": "ESA_WorldCover_2021_v200",
+    "ventanas_muestreadas": 30,
+    "evaluacion": "data/piloto/referencia-2021/evaluacion-experimental.json",
+    "directorio_modelos": "models/experimental",
+    "usarlo_como_bosque": false,
+    "transferencia_2024_2025_validada": false
+  },
+  "coleccion": "sentinel-2-l2a",
+  "piloto": {
+    "cvegeo": "15110",
+    "nombre": "Valle de Bravo",
+    "geometria": "data/municipios/valle-de-bravo-wgs84.geojson",
+    "anios_salida": [
+      2024,
+      2025
+    ],
+    "bimestres_salida": [
+      "2025-B1",
+      "2025-B2"
+    ],
+    "referencias_adicionales": [
+      "2023",
+      "2024-B6"
+    ],
+    "disponibilidad_cdse_verificada": false,
+    "inventario_stac_publico_completo": true,
+    "inventario_publico": "data/piloto/disponibilidad-publica.json",
+    "inventario_autenticado_completo": true,
+    "inventario_autenticado": "data/piloto/temporal-20m/catalogo-autenticado.json",
+    "acceso_sentinel_hub_autenticado_verificado": true,
+    "calidad_pixeles_verificada": false,
+    "prueba_estadistica_100m_verificada": true,
+    "auditoria_temporal_scl20m_completa": true,
+    "informe_temporal": "data/piloto/temporal-20m/resumen.json",
+    "margen_nubes_40m_aplicado": false,
+    "informe_conexion": "data/piloto/conexion-cdse.json",
+    "informe_prueba_estadistica": "data/piloto/prueba-calidad.json",
+    "alcance_verificacion": "Catalogo autenticado completo 2023-2025 (480 registros). Auditoria SCL a 20 m para seis periodos, sin margen de nubes ni ponderacion por area. La disponibilidad suficiente para un total forestal y la calidad final siguen sin verificarse."
+  },
+  "geometria": {
+    "version": "INEGI_MG_2025-12",
+    "crs_catalogo": "EPSG:4326",
+    "crs_rejilla": "EPSG:32614",
+    "resolucion_m": 20,
+    "alineacion_m": [
+      0,
+      0
+    ],
+    "bbox_piloto_rejilla": [
+      367060,
+      2109880,
+      399140,
+      2133460
+    ],
+    "dimensiones_piloto_px": [
+      1604,
+      1179
+    ],
+    "crs_area": "EPSG:6933",
+    "area": "interseccion_celda_municipio_en_crs_de_area_equivalente",
+    "lado_bloque_nucleo_px": 2000,
+    "margen_bloque_px": 2
+  },
+  "observaciones": {
+    "bandas": [
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B8A",
+      "B11",
+      "B12"
+    ],
+    "mascaras": [
+      "SCL",
+      "dataMask"
+    ],
+    "unidades_bandas": "REFLECTANCE",
+    "tipo_salida_bandas": "FLOAT32",
+    "harmonizeValues": true,
+    "remuestreo_bandas": "BILINEAR",
+    "remuestreo_mascaras": "NEAREST",
+    "solicitudes_mascaras_separadas": true,
+    "scl_utilizables": [
+      4,
+      5,
+      6
+    ],
+    "dataMask_requerido": 1,
+    "maxCloudCoverage_tesela": 100,
+    "margen_nubes_sombras_m_experimental": 40,
+    "deduplicar": "producto_reprocesado_y_teselas_de_la_misma_adquisicion",
+    "unidad_recuento_temporal": "dia_utc_unico"
+  },
+  "composicion": {
+    "zona_horaria": "UTC",
+    "ventanas": "inicio_inclusivo_fin_exclusivo",
+    "mensual": {
+      "metodo": "mediana_por_banda",
+      "dias_validos_minimos_por_celda": 2
+    },
+    "bimestral": {
+      "metodo": "mediana_de_compuestos_mensuales",
+      "meses_validos_requeridos": 2
+    },
+    "anual": {
+      "metodo": "mediana_de_compuestos_mensuales",
+      "meses_validos_minimos": 8,
+      "meses_validos_minimos_por_trimestre": 1
+    },
+    "interpolar": false,
+    "usar_datos_fuera_del_periodo": false,
+    "parametros_validados": false
+  },
+  "clasificacion": {
+    "algoritmo_propuesto": "RandomForestClassifier",
+    "n_estimators": 300,
+    "min_samples_leaf": 2,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "indices": [
+      "NDVI",
+      "NDMI",
+      "NBR"
+    ],
+    "denominador_cero": "ausente",
+    "clases": [
+      "bosque",
+      "agricultura_huertos",
+      "pastizal_matorral",
+      "urbano_suelo",
+      "agua"
+    ],
+    "modelo_por_frecuencia": true,
+    "mismo_modelo_para_todos_los_periodos_de_cada_frecuencia": true,
+    "rellenar_indeterminados": false,
+    "probabilidad_como_confianza_validada": false
+  },
+  "validacion": {
+    "separacion": "bloques_espaciales_y_periodos_reservados",
+    "ubicaciones_entrenamiento_objetivo_inicial": 500,
+    "ubicaciones_evaluacion_objetivo_inicial": 300,
+    "meta_precision_bosque_experimental": 0.85,
+    "meta_exhaustividad_bosque_experimental": 0.85,
+    "reportar_intervalos_confianza": true,
+    "evaluar_cambio_con_muestras_en_ambos_periodos": true,
+    "validar_solo_con_etiquetas_de_entrenamiento": false
+  },
+  "publicacion": {
+    "cobertura_revision_parcial_minima": 0.95,
+    "fraccion_area_sin_clasificar_permitida_para_total": 0,
+    "extrapolar_area_faltante": false,
+    "exigir_validacion_empirica": true,
+    "cambio_referencia": "periodo_calendario_anterior_de_igual_frecuencia",
+    "saltar_periodos_ausentes": false,
+    "porcentaje_con_base_cero": null,
+    "comparar_periodos_abiertos": false,
+    "cambio_cuyo_intervalo_incluye_cero": "no_concluyente"
+  }
+}
