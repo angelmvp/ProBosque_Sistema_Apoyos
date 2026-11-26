@@ -1,0 +1,116 @@
+{
+  "fecha_utc": "2026-11-26T18:53:20.603890+00:00",
+  "municipio": "15110",
+  "validacion_tecnica": "aprobada",
+  "series_anuales": 10,
+  "clases_por_anio": 17,
+  "conservacion_max_error_ha": 9.509676601737738e-09,
+  "superficie_limite_mapbiomas_ha": 40061.034937369,
+  "superficie_limite_inegi_ha": 40059.91214946518,
+  "diferencia_entre_limites_ha": 1.1227879038196988,
+  "uso_permitido": "cartografia_anual_publica_con_fuente_y_limitaciones",
+  "exactitud_local_validada": false,
+  "clasificador_cdse_validado": false,
+  "cambio_bimestral_validado": false,
+  "exactitud_fuente_publicada": false,
+  "relleno_temporal_en_fuente": true,
+  "intervalos_confianza_disponibles": false,
+  "sourceFingerprint": "3ea049d68ba58939cbd7107e2f0733c410f06f6c6f62d7350f904bd8a7e00124",
+  "resultados": [
+    {
+      "periodo": "2016",
+      "bosque_cartografiado_ha": 31571.041285199462,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": null,
+        "pct": null
+      }
+    },
+    {
+      "periodo": "2017",
+      "bosque_cartografiado_ha": 31308.010024512816,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": -263.0312606866464,
+        "pct": -0.8331409100844442
+      }
+    },
+    {
+      "periodo": "2018",
+      "bosque_cartografiado_ha": 31570.068009057675,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 262.0579845448592,
+        "pct": 0.8370317511067588
+      }
+    },
+    {
+      "periodo": "2019",
+      "bosque_cartografiado_ha": 31857.360944262935,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 287.2929352052597,
+        "pct": 0.9100168397573085
+      }
+    },
+    {
+      "periodo": "2020",
+      "bosque_cartografiado_ha": 31805.482657726585,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": -51.87828653635006,
+        "pct": -0.16284552454647883
+      }
+    },
+    {
+      "periodo": "2021",
+      "bosque_cartografiado_ha": 32018.722373156324,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 213.2397154297396,
+        "pct": 0.6704495502379579
+      }
+    },
+    {
+      "periodo": "2022",
+      "bosque_cartografiado_ha": 32069.02069973816,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 50.29832658183659,
+        "pct": 0.15709036105702148
+      }
+    },
+    {
+      "periodo": "2023",
+      "bosque_cartografiado_ha": 31872.550151087235,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": -196.4705486509265,
+        "pct": -0.6126490437312626
+      }
+    },
+    {
+      "periodo": "2024",
+      "bosque_cartografiado_ha": 31932.926504889674,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 60.37635380243955,
+        "pct": 0.18943057118502957
+      }
+    },
+    {
+      "periodo": "2025",
+      "bosque_cartografiado_ha": 32280.54728552795,
+      "no_observado_cartografia_ha": 0.0,
+      "cambio_cartografico": {
+        "ha": 347.6207806382772,
+        "pct": 1.0885966890164245
+      }
+    }
+  ],
+  "pendientes": [
+    "Etiquetas independientes revisadas de bosque y otros usos, fechadas por periodo.",
+    "Entrenamiento y evaluación espacial y temporal del clasificador CDSE.",
+    "Evaluación del error de superficie y cambio; resolución de nubes y estacionalidad."
+  ]
+}

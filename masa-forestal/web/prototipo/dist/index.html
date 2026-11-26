@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Consulta el historial anual de superficie forestal de los 125 municipios del Estado de México, con cartografía pública MapBiomas de 2017 a 2025.">
+  <meta name="theme-color" content="#204e3c"><title>Masa forestal · Historial municipal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23204e3c'/%3E%3Cpath d='M20 5 9 22h6l-5 7h8v6h4v-6h8l-5-7h6Z' fill='%23d4e9b9'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 5 9 22h6l-5 7h8v6h4v-6h8l-5-7h6Z"/></svg></span><div><p class="eyebrow">ESTADO DE MÉXICO</p><h1>Historial de masa forestal</h1></div></div>
+  <div class="header-actions"><button class="text-button" id="help-button">Cómo interpretar</button></div>
+</header>
+<main>
+  <div id="fatal-error" class="message error" role="alert" hidden><span></span> <button id="reload" class="text-button">Reintentar</button></div>
+  <div class="workspace">
+    <aside class="sidebar panel" aria-label="Consulta e historial">
+      <section class="filters"><p class="section-kicker">TU CONSULTA</p><h2>Selecciona un municipio</h2>
+        <form id="query-form" novalidate>
+          <label for="municipality-input">Municipio</label><div class="combobox"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="municipality-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="municipality-options" autocomplete="off" placeholder="Buscar municipio…" value="Valle de Bravo"><div id="municipality-options" class="options" role="listbox" aria-label="Municipios" hidden></div></div>
+          <p class="secondary">Consulta anual · selecciona el año inicial y final.</p>
+          <div class="range"><div><label for="from-period">Desde</label><select id="from-period"></select></div><div><label for="to-period">Hasta</label><select id="to-period"></select></div></div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <button type="submit" class="primary" id="query-button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Consultar historial</span></button>
+          <div id="local-controls" hidden><button type="button" class="secondary-action" id="refresh-cdse">Actualizar CDSE</button><p id="processing-scope" class="secondary">Actualiza el catálogo y revisa la calidad SCL del piloto.</p></div>
+        </form>
+      </section>
+      <section class="history" aria-labelledby="history-heading"><div class="section-heading"><h2 id="history-heading">Superficie por periodo</h2><span id="result-count" class="count">—</span></div><p id="result-context" class="secondary">Preparando el catálogo municipal…</p>
+        <div id="query-message" class="message" role="status" hidden></div>
+        <div class="table-wrap"><table id="history-table"><caption class="sr-only">Historial de superficie forestal y cambio respecto al periodo inmediatamente anterior</caption><thead><tr><th scope="col">Periodo</th><th scope="col" class="numeric" id="area-heading">Superficie<br>(ha)</th><th scope="col" class="numeric">Cambio<br>ha / %</th><th scope="col">Estado</th></tr></thead><tbody id="history-body"></tbody></table></div>
+        <p class="integrity-note"><span aria-hidden="true">ⓘ</span> Los periodos sin información no se interpolan. Cada cambio usa el periodo inmediatamente anterior.</p>
+      </section>
+      <details class="provenance"><summary>Fuentes y fecha de corte</summary><p>Mapa y procesamiento CDSE: <a href="https://www.inegi.org.mx/temas/mg/" target="_blank" rel="noopener">INEGI · diciembre de 2025</a>. Geometrías simplificadas solo para visualización.</p><p>Superficies anuales: <a href="https://mexico.mapbiomas.org/" target="_blank" rel="noopener">Proyecto MapBiomas · Colección 1 de los Mapas Anuales de Cobertura y Uso del Suelo de México</a> (CC-BY). Landsat de 30 m; límite municipal de la fuente, distinto a INEGI. Incluye relleno y filtros temporales. Exactitud local no evaluada.</p><p>Observaciones del piloto: <a href="https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data/S2L2A.html" target="_blank" rel="noopener">Sentinel-2 L2A · CDSE</a>.</p><p id="source-cutoff">Corte: <strong>26 de noviembre de 2026</strong>. Copia de resultados públicos; las fechas de consulta figuran en el detalle.</p></details>
+    </aside>
+    <div class="map-column">
+      <section class="map-panel panel" aria-labelledby="map-title">
+        <div class="map-header"><div><p class="section-kicker" id="map-kicker">VISTA MUNICIPAL</p><h2 id="map-title">Valle de Bravo</h2><p id="map-subtitle">Estado de México · 125 municipios</p></div><button class="map-fit" id="fit-municipality" title="Acercar al municipio seleccionado">Ver municipio</button></div>
+        <div id="map-stage"><svg id="municipal-map" viewBox="0 0 760 660" aria-label="Mapa interactivo de los municipios del Estado de México"><defs><pattern id="pending-pattern" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="7" height="7" fill="#f5dda4"/><path d="M0 0V7" stroke="#ca9d4f" stroke-width="2"/></pattern></defs><g id="municipal-shapes"></g><g id="selection-label" pointer-events="none"></g></svg><div id="map-tooltip" hidden></div></div>
+        <div class="map-controls" aria-label="Controles del mapa"><button id="zoom-in" aria-label="Acercar mapa">+</button><button id="zoom-out" aria-label="Alejar mapa">−</button><button id="reset-map" aria-label="Restablecer vista del estado" title="Ver todo el estado"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+        <div class="north" aria-label="Norte">N<svg viewBox="0 0 20 30" aria-hidden="true"><path d="m10 2 7 24-7-5-7 5Z"/></svg></div>
+        <div class="map-footer"><div id="legend" class="legend"><strong>Disponibilidad del piloto</strong><span><i class="swatch neutral"></i> Sin clasificación validada</span><span><i class="swatch selected"></i> Municipio seleccionado</span></div><div class="scale"><span id="scale-label">Escala aproximada</span><div id="scale-bar"></div><small>INEGI · 2025</small></div></div>
+      </section>
+      <section class="timeline-panel panel" aria-label="Línea de tiempo"><div class="timeline-heading"><h2 id="timeline-title">Línea de tiempo</h2><span class="secondary">Selecciona un periodo</span></div><div id="timeline" class="timeline"><p class="secondary">El historial aparecerá después de consultar.</p></div></section>
+      <section class="detail-panel panel" aria-labelledby="detail-title"><div class="section-heading"><div><p class="section-kicker">LECTURA DEL PERIODO</p><h2 id="detail-title">Detalle de la consulta</h2></div><span id="detail-status"></span></div><div id="detail-content"><p class="secondary">Consulta un periodo para revisar su superficie, referencia y calidad.</p></div></section>
+    </div>
+  </div>
+</main>
+<footer class="page-footer"><span>Masa forestal <span aria-hidden="true">/</span> Historial municipal</span><span>Una lectura del territorio a través del tiempo.</span></footer>
+<dialog id="help-dialog"><div class="dialog-header"><p class="section-kicker">GUÍA DE LECTURA</p><button class="text-button" id="close-help" aria-label="Cerrar guía">Cerrar</button></div><h2>Cómo interpretar el historial</h2><p><strong>La magnitud es superficie forestal en hectáreas.</strong> No representa biomasa ni volumen de madera.</p><p><strong>Consulta anual:</strong> selecciona un municipio y un rango de años. La cartografía disponible comprende 2017–2025; cada fila muestra un año y su cambio respecto al anterior.</p><p><strong>Cartografía anual:</strong> las cifras reales proceden de MapBiomas México, Colección 1. Se verifican municipio, años, clases, unidades y sumas. Esta comprobación técnica no certifica exactitud: el modelo local CDSE todavía no está validado. MapBiomas usa relleno de años vecinos y filtros temporales.</p><p><strong>Clases incluidas:</strong> bosque templado, tropical seco, tropical húmedo y manglar. Cultivos y plantaciones forestales se excluyen según la leyenda de la fuente.</p><p><strong>Cambio:</strong> superficie actual menos superficie del año anterior de la misma cartografía. Su porcentaje usa la superficie anterior. La diferencia no demuestra deforestación ni recuperación; falta evaluación local del error. Si falta un año, no se salta; una base cero no produce porcentaje.</p><p><strong>Mapa:</strong> los límites INEGI sirven para localizar municipios. El color resume la proporción cartografiada en el límite de MapBiomas y no localiza píxeles de bosque.</p><button id="accept-help" class="primary">Entendido</button></dialog>
+<div id="announcement" class="sr-only" aria-live="polite"></div>
+<noscript><p class="message error">Activa JavaScript para consultar el historial y utilizar el mapa.</p></noscript>
+<script src="./runtime.js"></script><script type="module" src="./app.js"></script>
+</body>
+</html>

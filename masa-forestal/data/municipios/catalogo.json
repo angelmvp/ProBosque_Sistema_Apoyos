@@ -1,0 +1,1883 @@
+{
+  "entidad": "Estado de México",
+  "cve_ent": "15",
+  "fecha_descarga": "2026-11-25",
+  "version_geometria": "INEGI_MG_2025-12",
+  "municipios": [
+    {
+      "cvegeo": "15001",
+      "cve_ent": "15",
+      "cve_mun": "001",
+      "nombre": "Acambay de Ruíz Castañeda",
+      "bbox_origen": [
+        -100.07700892,
+        19.84051783,
+        -99.69981211,
+        20.0774804
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15002",
+      "cve_ent": "15",
+      "cve_mun": "002",
+      "nombre": "Acolman",
+      "bbox_origen": [
+        -98.99723054,
+        19.58332286,
+        -98.84075305,
+        19.69022963
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15003",
+      "cve_ent": "15",
+      "cve_mun": "003",
+      "nombre": "Aculco",
+      "bbox_origen": [
+        -99.98646355,
+        19.99902111,
+        -99.67034488,
+        20.27246231
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15004",
+      "cve_ent": "15",
+      "cve_mun": "004",
+      "nombre": "Almoloya de Alquisiras",
+      "bbox_origen": [
+        -99.95455975,
+        18.69653162,
+        -99.78006237,
+        18.91742672
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15005",
+      "cve_ent": "15",
+      "cve_mun": "005",
+      "nombre": "Almoloya de Juárez",
+      "bbox_origen": [
+        -99.93795305,
+        19.24380972,
+        -99.702218747,
+        19.550849691
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15006",
+      "cve_ent": "15",
+      "cve_mun": "006",
+      "nombre": "Almoloya del Río",
+      "bbox_origen": [
+        -99.52668508,
+        19.14945102,
+        -99.46302217,
+        19.17109203
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15007",
+      "cve_ent": "15",
+      "cve_mun": "007",
+      "nombre": "Amanalco",
+      "bbox_origen": [
+        -100.092792579,
+        19.17837008,
+        -99.900244223,
+        19.33284946
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15008",
+      "cve_ent": "15",
+      "cve_mun": "008",
+      "nombre": "Amatepec",
+      "bbox_origen": [
+        -100.48879862,
+        18.58550392,
+        -100.00352725,
+        18.81320349
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15009",
+      "cve_ent": "15",
+      "cve_mun": "009",
+      "nombre": "Amecameca",
+      "bbox_origen": [
+        -98.81807569,
+        19.055368942,
+        -98.62548935,
+        19.18319288
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15010",
+      "cve_ent": "15",
+      "cve_mun": "010",
+      "nombre": "Apaxco",
+      "bbox_origen": [
+        -99.21539443,
+        19.92949855,
+        -99.08399217,
+        20.031713941
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15011",
+      "cve_ent": "15",
+      "cve_mun": "011",
+      "nombre": "Atenco",
+      "bbox_origen": [
+        -99.01454946,
+        19.49036162,
+        -98.89277055,
+        19.59652332
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15012",
+      "cve_ent": "15",
+      "cve_mun": "012",
+      "nombre": "Atizapán",
+      "bbox_origen": [
+        -99.519410049,
+        19.16223754,
+        -99.475434303,
+        19.1878256
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15013",
+      "cve_ent": "15",
+      "cve_mun": "013",
+      "nombre": "Atizapán de Zaragoza",
+      "bbox_origen": [
+        -99.3544114,
+        19.51585943,
+        -99.21158028,
+        19.61221426
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15014",
+      "cve_ent": "15",
+      "cve_mun": "014",
+      "nombre": "Atlacomulco",
+      "bbox_origen": [
+        -99.97419609,
+        19.72958522,
+        -99.70513458,
+        19.90158382
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15015",
+      "cve_ent": "15",
+      "cve_mun": "015",
+      "nombre": "Atlautla",
+      "bbox_origen": [
+        -98.82499872,
+        18.94029246,
+        -98.61987463,
+        19.09231912
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15016",
+      "cve_ent": "15",
+      "cve_mun": "016",
+      "nombre": "Axapusco",
+      "bbox_origen": [
+        -98.86933335,
+        19.64883089,
+        -98.59686666,
+        19.88354055
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15017",
+      "cve_ent": "15",
+      "cve_mun": "017",
+      "nombre": "Ayapango",
+      "bbox_origen": [
+        -98.852674279,
+        19.071677571,
+        -98.77283554,
+        19.16927589
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15018",
+      "cve_ent": "15",
+      "cve_mun": "018",
+      "nombre": "Calimaya",
+      "bbox_origen": [
+        -99.73474998,
+        19.11630635,
+        -99.53663389,
+        19.22116811
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15019",
+      "cve_ent": "15",
+      "cve_mun": "019",
+      "nombre": "Capulhuac",
+      "bbox_origen": [
+        -99.48351585,
+        19.18415012,
+        -99.42904782,
+        19.249710621
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15025",
+      "cve_ent": "15",
+      "cve_mun": "025",
+      "nombre": "Chalco",
+      "bbox_origen": [
+        -98.96967857,
+        19.15738254,
+        -98.68288965,
+        19.31922874
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15026",
+      "cve_ent": "15",
+      "cve_mun": "026",
+      "nombre": "Chapa de Mota",
+      "bbox_origen": [
+        -99.67102174,
+        19.73283002,
+        -99.42068574,
+        19.90420554
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15027",
+      "cve_ent": "15",
+      "cve_mun": "027",
+      "nombre": "Chapultepec",
+      "bbox_origen": [
+        -99.57990738,
+        19.18533603,
+        -99.51306505,
+        19.22319335
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15028",
+      "cve_ent": "15",
+      "cve_mun": "028",
+      "nombre": "Chiautla",
+      "bbox_origen": [
+        -98.91095485,
+        19.53593283,
+        -98.861493629,
+        19.60499126
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15029",
+      "cve_ent": "15",
+      "cve_mun": "029",
+      "nombre": "Chicoloapan",
+      "bbox_origen": [
+        -98.9386832,
+        19.35717894,
+        -98.79921245,
+        19.43600337
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15030",
+      "cve_ent": "15",
+      "cve_mun": "030",
+      "nombre": "Chiconcuac",
+      "bbox_origen": [
+        -98.91130391,
+        19.5360358,
+        -98.87911525,
+        19.57071906
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15031",
+      "cve_ent": "15",
+      "cve_mun": "031",
+      "nombre": "Chimalhuacán",
+      "bbox_origen": [
+        -98.9905896,
+        19.373189141,
+        -98.89498414,
+        19.46356415
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15020",
+      "cve_ent": "15",
+      "cve_mun": "020",
+      "nombre": "Coacalco de Berriozábal",
+      "bbox_origen": [
+        -99.12878583,
+        19.58848469,
+        -99.07246991,
+        19.66404394
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15021",
+      "cve_ent": "15",
+      "cve_mun": "021",
+      "nombre": "Coatepec Harinas",
+      "bbox_origen": [
+        -99.894929085,
+        18.80325249,
+        -99.72040877,
+        19.074424048
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15022",
+      "cve_ent": "15",
+      "cve_mun": "022",
+      "nombre": "Cocotitlán",
+      "bbox_origen": [
+        -98.88144014,
+        19.20559291,
+        -98.83171155,
+        19.24983722
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15023",
+      "cve_ent": "15",
+      "cve_mun": "023",
+      "nombre": "Coyotepec",
+      "bbox_origen": [
+        -99.28211211,
+        19.74982117,
+        -99.179568519,
+        19.82307614
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15024",
+      "cve_ent": "15",
+      "cve_mun": "024",
+      "nombre": "Cuautitlán",
+      "bbox_origen": [
+        -99.200552333,
+        19.6434112,
+        -99.11802229,
+        19.7666212
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15121",
+      "cve_ent": "15",
+      "cve_mun": "121",
+      "nombre": "Cuautitlán Izcalli",
+      "bbox_origen": [
+        -99.28966829,
+        19.58567592,
+        -99.175215525,
+        19.729833648
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15032",
+      "cve_ent": "15",
+      "cve_mun": "032",
+      "nombre": "Donato Guerra",
+      "bbox_origen": [
+        -100.31238866,
+        19.23350106,
+        -100.055020059,
+        19.40427954
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15033",
+      "cve_ent": "15",
+      "cve_mun": "033",
+      "nombre": "Ecatepec de Morelos",
+      "bbox_origen": [
+        -99.11859757,
+        19.48456963,
+        -98.97576529,
+        19.659148521
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15034",
+      "cve_ent": "15",
+      "cve_mun": "034",
+      "nombre": "Ecatzingo",
+      "bbox_origen": [
+        -98.7994542,
+        18.93533988,
+        -98.66625931,
+        19.00130414
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15064",
+      "cve_ent": "15",
+      "cve_mun": "064",
+      "nombre": "El Oro",
+      "bbox_origen": [
+        -100.149869539,
+        19.72708018,
+        -99.98173137,
+        19.860426981
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15035",
+      "cve_ent": "15",
+      "cve_mun": "035",
+      "nombre": "Huehuetoca",
+      "bbox_origen": [
+        -99.34612355,
+        19.7511032,
+        -99.17178802,
+        19.89339317
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15036",
+      "cve_ent": "15",
+      "cve_mun": "036",
+      "nombre": "Hueypoxtla",
+      "bbox_origen": [
+        -99.14296858,
+        19.83328637,
+        -98.94213155,
+        20.068261921
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15037",
+      "cve_ent": "15",
+      "cve_mun": "037",
+      "nombre": "Huixquilucan",
+      "bbox_origen": [
+        -99.40417963,
+        19.30333342,
+        -99.23946923,
+        19.43886255
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15038",
+      "cve_ent": "15",
+      "cve_mun": "038",
+      "nombre": "Isidro Fabela",
+      "bbox_origen": [
+        -99.52447652,
+        19.51114092,
+        -99.33129531,
+        19.59235195
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15039",
+      "cve_ent": "15",
+      "cve_mun": "039",
+      "nombre": "Ixtapaluca",
+      "bbox_origen": [
+        -98.95392917,
+        19.24687398,
+        -98.63187126,
+        19.41158622
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15040",
+      "cve_ent": "15",
+      "cve_mun": "040",
+      "nombre": "Ixtapan de la Sal",
+      "bbox_origen": [
+        -99.76272863,
+        18.768838881,
+        -99.60935275,
+        18.913052201
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15041",
+      "cve_ent": "15",
+      "cve_mun": "041",
+      "nombre": "Ixtapan del Oro",
+      "bbox_origen": [
+        -100.33767775,
+        19.19428055,
+        -100.21998898,
+        19.32920738
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15042",
+      "cve_ent": "15",
+      "cve_mun": "042",
+      "nombre": "Ixtlahuaca",
+      "bbox_origen": [
+        -99.916451314,
+        19.46851355,
+        -99.67882658,
+        19.73455908
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15044",
+      "cve_ent": "15",
+      "cve_mun": "044",
+      "nombre": "Jaltenco",
+      "bbox_origen": [
+        -99.10450103,
+        19.65718629,
+        -99.06263509,
+        19.76407112
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15045",
+      "cve_ent": "15",
+      "cve_mun": "045",
+      "nombre": "Jilotepec",
+      "bbox_origen": [
+        -99.73645917,
+        19.85287326,
+        -99.4326922,
+        20.18082054
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15046",
+      "cve_ent": "15",
+      "cve_mun": "046",
+      "nombre": "Jilotzingo",
+      "bbox_origen": [
+        -99.47510278,
+        19.43828769,
+        -99.31983154,
+        19.55711015
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15047",
+      "cve_ent": "15",
+      "cve_mun": "047",
+      "nombre": "Jiquipilco",
+      "bbox_origen": [
+        -99.7410108,
+        19.48249178,
+        -99.52464397,
+        19.70074934
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15048",
+      "cve_ent": "15",
+      "cve_mun": "048",
+      "nombre": "Jocotitlán",
+      "bbox_origen": [
+        -100.01570682,
+        19.61394286,
+        -99.65862191,
+        19.81729298
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15049",
+      "cve_ent": "15",
+      "cve_mun": "049",
+      "nombre": "Joquicingo",
+      "bbox_origen": [
+        -99.559482232,
+        19.003818031,
+        -99.474303139,
+        19.12035075
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15050",
+      "cve_ent": "15",
+      "cve_mun": "050",
+      "nombre": "Juchitepec",
+      "bbox_origen": [
+        -98.9789954,
+        19.02386865,
+        -98.83236368,
+        19.17438352
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15070",
+      "cve_ent": "15",
+      "cve_mun": "070",
+      "nombre": "La Paz",
+      "bbox_origen": [
+        -98.994556659,
+        19.33306489,
+        -98.89804975,
+        19.390308921
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15051",
+      "cve_ent": "15",
+      "cve_mun": "051",
+      "nombre": "Lerma",
+      "bbox_origen": [
+        -99.572269003,
+        19.22195095,
+        -99.38190657,
+        19.43066912
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15123",
+      "cve_ent": "15",
+      "cve_mun": "123",
+      "nombre": "Luvianos",
+      "bbox_origen": [
+        -100.613091,
+        18.81652868,
+        -100.23274211,
+        19.07657297
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15052",
+      "cve_ent": "15",
+      "cve_mun": "052",
+      "nombre": "Malinalco",
+      "bbox_origen": [
+        -99.55317278,
+        18.75377345,
+        -99.42443411,
+        19.03328795
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15053",
+      "cve_ent": "15",
+      "cve_mun": "053",
+      "nombre": "Melchor Ocampo",
+      "bbox_origen": [
+        -99.15971311,
+        19.6898734,
+        -99.1061306,
+        19.72641714
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15054",
+      "cve_ent": "15",
+      "cve_mun": "054",
+      "nombre": "Metepec",
+      "bbox_origen": [
+        -99.64704605,
+        19.21565442,
+        -99.5127926,
+        19.28716714
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15055",
+      "cve_ent": "15",
+      "cve_mun": "055",
+      "nombre": "Mexicaltzingo",
+      "bbox_origen": [
+        -99.61100505,
+        19.19649997,
+        -99.551802888,
+        19.22342517
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15056",
+      "cve_ent": "15",
+      "cve_mun": "056",
+      "nombre": "Morelos",
+      "bbox_origen": [
+        -99.74905475,
+        19.60920531,
+        -99.519932379,
+        19.84058009
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15057",
+      "cve_ent": "15",
+      "cve_mun": "057",
+      "nombre": "Naucalpan de Juárez",
+      "bbox_origen": [
+        -99.41407402,
+        19.412007291,
+        -99.20682497,
+        19.53673777
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15059",
+      "cve_ent": "15",
+      "cve_mun": "059",
+      "nombre": "Nextlalpan",
+      "bbox_origen": [
+        -99.129819715,
+        19.679661201,
+        -99.03228504,
+        19.773268941
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15058",
+      "cve_ent": "15",
+      "cve_mun": "058",
+      "nombre": "Nezahualcóyotl",
+      "bbox_origen": [
+        -99.06799134,
+        19.36621011,
+        -98.96587435,
+        19.498778711
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15060",
+      "cve_ent": "15",
+      "cve_mun": "060",
+      "nombre": "Nicolás Romero",
+      "bbox_origen": [
+        -99.53397575,
+        19.56285855,
+        -99.266122008,
+        19.70551529
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15061",
+      "cve_ent": "15",
+      "cve_mun": "061",
+      "nombre": "Nopaltepec",
+      "bbox_origen": [
+        -98.78005,
+        19.73610151,
+        -98.63976405,
+        19.86497346
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15062",
+      "cve_ent": "15",
+      "cve_mun": "062",
+      "nombre": "Ocoyoacac",
+      "bbox_origen": [
+        -99.497521155,
+        19.20396589,
+        -99.31336574,
+        19.31292577
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15063",
+      "cve_ent": "15",
+      "cve_mun": "063",
+      "nombre": "Ocuilan",
+      "bbox_origen": [
+        -99.503503148,
+        18.87756929,
+        -99.29526957,
+        19.12512988
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15065",
+      "cve_ent": "15",
+      "cve_mun": "065",
+      "nombre": "Otumba",
+      "bbox_origen": [
+        -98.81644283,
+        19.59828494,
+        -98.65926106,
+        19.739126
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15066",
+      "cve_ent": "15",
+      "cve_mun": "066",
+      "nombre": "Otzoloapan",
+      "bbox_origen": [
+        -100.41067571,
+        19.03821262,
+        -100.196523846,
+        19.158459449
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15067",
+      "cve_ent": "15",
+      "cve_mun": "067",
+      "nombre": "Otzolotepec",
+      "bbox_origen": [
+        -99.659299424,
+        19.37541445,
+        -99.43288138,
+        19.51332
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15068",
+      "cve_ent": "15",
+      "cve_mun": "068",
+      "nombre": "Ozumba",
+      "bbox_origen": [
+        -98.84504643,
+        18.95015177,
+        -98.77137375,
+        19.08210858
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15069",
+      "cve_ent": "15",
+      "cve_mun": "069",
+      "nombre": "Papalotla",
+      "bbox_origen": [
+        -98.87322823,
+        19.54964966,
+        -98.84634111,
+        19.56808677
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15071",
+      "cve_ent": "15",
+      "cve_mun": "071",
+      "nombre": "Polotitlán",
+      "bbox_origen": [
+        -99.93408357,
+        20.13830178,
+        -99.69528071,
+        20.28586666
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15072",
+      "cve_ent": "15",
+      "cve_mun": "072",
+      "nombre": "Rayón",
+      "bbox_origen": [
+        -99.60847566,
+        19.12043758,
+        -99.53021635,
+        19.15780843
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15073",
+      "cve_ent": "15",
+      "cve_mun": "073",
+      "nombre": "San Antonio la Isla",
+      "bbox_origen": [
+        -99.596309819,
+        19.14328322,
+        -99.51372666,
+        19.19519163
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15074",
+      "cve_ent": "15",
+      "cve_mun": "074",
+      "nombre": "San Felipe del Progreso",
+      "bbox_origen": [
+        -100.084587288,
+        19.53314314,
+        -99.86720532,
+        19.76508486
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15124",
+      "cve_ent": "15",
+      "cve_mun": "124",
+      "nombre": "San José del Rincón",
+      "bbox_origen": [
+        -100.27398972,
+        19.48552089,
+        -100.008512511,
+        19.78648629
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15075",
+      "cve_ent": "15",
+      "cve_mun": "075",
+      "nombre": "San Martín de las Pirámides",
+      "bbox_origen": [
+        -98.89085815,
+        19.61826689,
+        -98.76137535,
+        19.77278815
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15076",
+      "cve_ent": "15",
+      "cve_mun": "076",
+      "nombre": "San Mateo Atenco",
+      "bbox_origen": [
+        -99.573092629,
+        19.23781982,
+        -99.51962489,
+        19.30779538
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15077",
+      "cve_ent": "15",
+      "cve_mun": "077",
+      "nombre": "San Simón de Guerrero",
+      "bbox_origen": [
+        -100.115795649,
+        18.91023389,
+        -99.9277198,
+        19.03451922
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15078",
+      "cve_ent": "15",
+      "cve_mun": "078",
+      "nombre": "Santo Tomás",
+      "bbox_origen": [
+        -100.37819148,
+        19.128072765,
+        -100.207634809,
+        19.230288738
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15079",
+      "cve_ent": "15",
+      "cve_mun": "079",
+      "nombre": "Soyaniquilpan de Juárez",
+      "bbox_origen": [
+        -99.59018952,
+        19.985059,
+        -99.43677672,
+        20.12023803
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15080",
+      "cve_ent": "15",
+      "cve_mun": "080",
+      "nombre": "Sultepec",
+      "bbox_origen": [
+        -100.138355208,
+        18.55297891,
+        -99.84481597,
+        18.88980988
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15081",
+      "cve_ent": "15",
+      "cve_mun": "081",
+      "nombre": "Tecámac",
+      "bbox_origen": [
+        -99.06263509,
+        19.61420568,
+        -98.91576557,
+        19.80869731
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15082",
+      "cve_ent": "15",
+      "cve_mun": "082",
+      "nombre": "Tejupilco",
+      "bbox_origen": [
+        -100.53861989,
+        18.759306541,
+        -99.99106977,
+        19.02228997
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15083",
+      "cve_ent": "15",
+      "cve_mun": "083",
+      "nombre": "Temamatla",
+      "bbox_origen": [
+        -98.92531148,
+        19.15541634,
+        -98.84317403,
+        19.22913329
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15084",
+      "cve_ent": "15",
+      "cve_mun": "084",
+      "nombre": "Temascalapa",
+      "bbox_origen": [
+        -98.95128646,
+        19.72719608,
+        -98.80994208,
+        19.90428015
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15085",
+      "cve_ent": "15",
+      "cve_mun": "085",
+      "nombre": "Temascalcingo",
+      "bbox_origen": [
+        -100.15865698,
+        19.80692983,
+        -99.89085075,
+        20.05544446
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15086",
+      "cve_ent": "15",
+      "cve_mun": "086",
+      "nombre": "Temascaltepec",
+      "bbox_origen": [
+        -100.24011152,
+        18.978980351,
+        -99.816457005,
+        19.241232539
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15087",
+      "cve_ent": "15",
+      "cve_mun": "087",
+      "nombre": "Temoaya",
+      "bbox_origen": [
+        -99.73111042,
+        19.39812815,
+        -99.48926788,
+        19.58238383
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15088",
+      "cve_ent": "15",
+      "cve_mun": "088",
+      "nombre": "Tenancingo",
+      "bbox_origen": [
+        -99.64327629,
+        18.81854529,
+        -99.490949949,
+        19.04121451
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15089",
+      "cve_ent": "15",
+      "cve_mun": "089",
+      "nombre": "Tenango del Aire",
+      "bbox_origen": [
+        -98.92532886,
+        19.11425783,
+        -98.82556269,
+        19.18395126
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15090",
+      "cve_ent": "15",
+      "cve_mun": "090",
+      "nombre": "Tenango del Valle",
+      "bbox_origen": [
+        -99.785565256,
+        19.00997769,
+        -99.526501719,
+        19.142517373
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15091",
+      "cve_ent": "15",
+      "cve_mun": "091",
+      "nombre": "Teoloyucan",
+      "bbox_origen": [
+        -99.21654463,
+        19.72033809,
+        -99.13847605,
+        19.79561015
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15092",
+      "cve_ent": "15",
+      "cve_mun": "092",
+      "nombre": "Teotihuacán",
+      "bbox_origen": [
+        -98.93763829,
+        19.63134446,
+        -98.80661605,
+        19.75530285
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15093",
+      "cve_ent": "15",
+      "cve_mun": "093",
+      "nombre": "Tepetlaoxtoc",
+      "bbox_origen": [
+        -98.87193294,
+        19.462917971,
+        -98.65322655,
+        19.63558109
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15094",
+      "cve_ent": "15",
+      "cve_mun": "094",
+      "nombre": "Tepetlixpa",
+      "bbox_origen": [
+        -98.87405917,
+        18.95514337,
+        -98.80410626,
+        19.07274185
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15095",
+      "cve_ent": "15",
+      "cve_mun": "095",
+      "nombre": "Tepotzotlán",
+      "bbox_origen": [
+        -99.42167731,
+        19.64520871,
+        -99.195367001,
+        19.792154882
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15096",
+      "cve_ent": "15",
+      "cve_mun": "096",
+      "nombre": "Tequixquiac",
+      "bbox_origen": [
+        -99.22776105,
+        19.82281965,
+        -99.05860514,
+        19.96443878
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15097",
+      "cve_ent": "15",
+      "cve_mun": "097",
+      "nombre": "Texcaltitlán",
+      "bbox_origen": [
+        -100.01322912,
+        18.86241786,
+        -99.855413787,
+        19.0197374
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15098",
+      "cve_ent": "15",
+      "cve_mun": "098",
+      "nombre": "Texcalyacac",
+      "bbox_origen": [
+        -99.53737814,
+        19.08779643,
+        -99.48042494,
+        19.15926871
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15099",
+      "cve_ent": "15",
+      "cve_mun": "099",
+      "nombre": "Texcoco",
+      "bbox_origen": [
+        -99.028900478,
+        19.39483665,
+        -98.63467577,
+        19.55695469
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15100",
+      "cve_ent": "15",
+      "cve_mun": "100",
+      "nombre": "Tezoyuca",
+      "bbox_origen": [
+        -98.972738549,
+        19.57694388,
+        -98.89978405,
+        19.61169912
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15101",
+      "cve_ent": "15",
+      "cve_mun": "101",
+      "nombre": "Tianguistenco",
+      "bbox_origen": [
+        -99.53687462,
+        19.08653262,
+        -99.306558489,
+        19.2379548
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15102",
+      "cve_ent": "15",
+      "cve_mun": "102",
+      "nombre": "Timilpan",
+      "bbox_origen": [
+        -99.78953217,
+        19.795410429,
+        -99.64020572,
+        20.04933869
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15103",
+      "cve_ent": "15",
+      "cve_mun": "103",
+      "nombre": "Tlalmanalco",
+      "bbox_origen": [
+        -98.85555269,
+        19.14909038,
+        -98.62752488,
+        19.26477742
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15104",
+      "cve_ent": "15",
+      "cve_mun": "104",
+      "nombre": "Tlalnepantla de Baz",
+      "bbox_origen": [
+        -99.24946694,
+        19.49725211,
+        -99.08021538,
+        19.59557474
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15105",
+      "cve_ent": "15",
+      "cve_mun": "105",
+      "nombre": "Tlatlaya",
+      "bbox_origen": [
+        -100.4493616,
+        18.366942881,
+        -100.06753235,
+        18.67728969
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15106",
+      "cve_ent": "15",
+      "cve_mun": "106",
+      "nombre": "Toluca",
+      "bbox_origen": [
+        -99.78235451,
+        19.068841819,
+        -99.528655,
+        19.492217182
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15125",
+      "cve_ent": "15",
+      "cve_mun": "125",
+      "nombre": "Tonanitla",
+      "bbox_origen": [
+        -99.07428209,
+        19.659148521,
+        -99.04333806,
+        19.70051045
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15107",
+      "cve_ent": "15",
+      "cve_mun": "107",
+      "nombre": "Tonatico",
+      "bbox_origen": [
+        -99.71230132,
+        18.72033372,
+        -99.57372882,
+        18.83345895
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15108",
+      "cve_ent": "15",
+      "cve_mun": "108",
+      "nombre": "Tultepec",
+      "bbox_origen": [
+        -99.150296096,
+        19.64578549,
+        -99.0755168,
+        19.7108077
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15109",
+      "cve_ent": "15",
+      "cve_mun": "109",
+      "nombre": "Tultitlán",
+      "bbox_origen": [
+        -99.19328071,
+        19.57234708,
+        -99.06847512,
+        19.689580147
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15110",
+      "cve_ent": "15",
+      "cve_mun": "110",
+      "nombre": "Valle de Bravo",
+      "bbox_origen": [
+        -100.26431766,
+        19.07870808,
+        -99.9592946,
+        19.291105201
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15122",
+      "cve_ent": "15",
+      "cve_mun": "122",
+      "nombre": "Valle de Chalco Solidaridad",
+      "bbox_origen": [
+        -98.97653063,
+        19.22495431,
+        -98.91043369,
+        19.340181311
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15111",
+      "cve_ent": "15",
+      "cve_mun": "111",
+      "nombre": "Villa de Allende",
+      "bbox_origen": [
+        -100.25212302,
+        19.296354048,
+        -99.99809808,
+        19.49291214
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15112",
+      "cve_ent": "15",
+      "cve_mun": "112",
+      "nombre": "Villa del Carbón",
+      "bbox_origen": [
+        -99.64988958,
+        19.61386142,
+        -99.373249909,
+        19.874997023
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15113",
+      "cve_ent": "15",
+      "cve_mun": "113",
+      "nombre": "Villa Guerrero",
+      "bbox_origen": [
+        -99.77288763,
+        18.81627511,
+        -99.60731109,
+        19.065179089
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15114",
+      "cve_ent": "15",
+      "cve_mun": "114",
+      "nombre": "Villa Victoria",
+      "bbox_origen": [
+        -100.15136131,
+        19.292711021,
+        -99.8530802,
+        19.57199555
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15043",
+      "cve_ent": "15",
+      "cve_mun": "043",
+      "nombre": "Xalatlaco",
+      "bbox_origen": [
+        -99.45745555,
+        19.12150658,
+        -99.27869522,
+        19.21108083
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15115",
+      "cve_ent": "15",
+      "cve_mun": "115",
+      "nombre": "Xonacatlán",
+      "bbox_origen": [
+        -99.565667189,
+        19.39543408,
+        -99.40874286,
+        19.48776171
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15116",
+      "cve_ent": "15",
+      "cve_mun": "116",
+      "nombre": "Zacazonapan",
+      "bbox_origen": [
+        -100.30387082,
+        19.00727331,
+        -100.21335605,
+        19.117921935
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15117",
+      "cve_ent": "15",
+      "cve_mun": "117",
+      "nombre": "Zacualpan",
+      "bbox_origen": [
+        -99.9492662,
+        18.58904102,
+        -99.671669849,
+        18.839464351
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15118",
+      "cve_ent": "15",
+      "cve_mun": "118",
+      "nombre": "Zinacantepec",
+      "bbox_origen": [
+        -99.901755919,
+        19.071479514,
+        -99.695766552,
+        19.33610183
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15119",
+      "cve_ent": "15",
+      "cve_mun": "119",
+      "nombre": "Zumpahuacán",
+      "bbox_origen": [
+        -99.62529278,
+        18.69375111,
+        -99.46619209,
+        18.92330268
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    },
+    {
+      "cvegeo": "15120",
+      "cve_ent": "15",
+      "cve_mun": "120",
+      "nombre": "Zumpango",
+      "bbox_origen": [
+        -99.19358322,
+        19.72169549,
+        -98.97019843,
+        19.904126721
+      ],
+      "crs_origen": "EPSG:6365",
+      "version_geometria": "INEGI_MG_2025-12",
+      "archivo_geometria": "inegi-geometrias-original.geojson"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "exactitud_estadistica_publicada": false,
+  "usa_relleno_temporal": true,
+  "periodicidad": "anual",
+  "solicitudes": [
+    {
+      "sha256": "f9dee2f980cda33b7c20d5f87cf1760816731b44cf42700af7d3e1c17532bc62",
+      "url": "https://prd.plataforma.mapbiomas.org/api/v1/mexico/statistics/area?tenantId=mapbiomas&territoryId=37-3-684&subthemeKey=coverage_lclu&legendKey=default&pixelValue=88&pixelValue=89&pixelValue=3&pixelValue=5&pixelValue=66&pixelValue=45&pixelValue=11&pixelValue=15&pixelValue=36&pixelValue=19&pixelValue=9&pixelValue=21&pixelValue=24&pixelValue=25&pixelValue=33&pixelValue=34&pixelValue=27&year=2016&year=2017&year=2018&year=2019&year=2020&year=2021&year=2022&year=2023&year=2024&year=2025",
+      "fecha_consulta_utc": "2026-11-26T18:53:19.904914+00:00",
+      "metodo": "GET",
+      "http_status": 200,
+      "archivo": "estadisticas-15110-2016-2025.json"
+    },
+    {
+      "sha256": "5035a0267890623dee5964d8b3cfe39414aa04200b6d985431a336fb759c7e29",
+      "url": "https://prd.plataforma.mapbiomas.org/api/v1/mexico/legends/by/key/default?tenantId=mapbiomas",
+      "fecha_consulta_utc": "2026-11-26T18:53:20.161442+00:00",
+      "metodo": "GET",
+      "http_status": 200,
+      "archivo": "leyenda.json"
+    },
+    {
+      "sha256": "b07921548a6abc5272cd84f252fa79562d1db0a58c7840e7fda1dc1180d127d8",
+      "url": "https://prd.plataforma.mapbiomas.org/api/v1/mexico/territories?tenantId=mapbiomas&search=Valle%20de%20Bravo&categoryId=3",
+      "fecha_consulta_utc": "2026-11-26T18:53:20.309449+00:00",
+      "metodo": "GET",
+      "http_status": 200,
+      "archivo": "municipio-busqueda.json"
+    },
+    {
+      "sha256": "f002fe0581a821c46a9612792f5e5cbb8b5da88ca5930d3ac3ea13c92d15625c",
+      "url": "https://prd.plataforma.mapbiomas.org/api/v1/mexico/territories/37-3-684?tenantId=mapbiomas",
+      "fecha_consulta_utc": "2026-11-26T18:53:20.421223+00:00",
+      "metodo": "GET",
+      "http_status": 200,
+      "archivo": "municipio.json"
+    },
+    {
+      "sha256": "7124db8cd69417b2596df8d7f2336e73940c53b3d333b4899e187a0d32bf604d",
+      "url": "https://prd.plataforma.mapbiomas.org/api/v1/mexico/themes/subthemes/d3631c59-3724-40b2-8d71-7189933692ef?tenantId=mapbiomas",
+      "fecha_consulta_utc": "2026-11-26T18:53:20.574252+00:00",
+      "metodo": "GET",
+      "http_status": 200,
+      "archivo": "coleccion.json"
+    }
+  ],
+  "resolucion_m": 30,
+  "licencia": "CC-BY",
+  "municipio_cvegeo": "15110",
+  "validacion_local_completada": false,
+  "fuente": "Proyecto MapBiomas - Colección 1 de los Mapas Anuales de Cobertura y Uso del Suelo de México",
+  "advertencias": [
+    "La cartografía anual no valida estimaciones bimestrales.",
+    "El ATBD declara evaluación cualitativa, sin evaluación estadística rigurosa de exactitud.",
+    "Las estadísticas usan el límite territorial MapBiomas, distinto al límite INEGI local.",
+    "El procesamiento incluye relleno desde años vecinos y filtros temporales."
+  ],
+  "territory_id": "37-3-684",
+  "documentacion": "https://mexico.mapbiomas.org/wp-content/uploads/sites/2/2026/08/ATBD-General-MapBiomas-Mexico-Coleccion-1.0.pdf",
+  "publicacion": "agosto 2026",
+  "plataforma": "https://plataforma.mexico.mapbiomas.org/"
+}

@@ -1,0 +1,51 @@
+{
+  "fecha_utc": "2026-11-26T20:29:49.501652+00:00",
+  "municipio": "15110",
+  "revision_automatizada_completada": true,
+  "validacion_calculo": {
+    "estado": "aprobada",
+    "pruebas": 110,
+    "conservacion_area_comprobada": true,
+    "prueba_geodesica_y_rejilla": "data/piloto/calculo-superficie/prueba-samof-2016.json",
+    "prueba_datos_cdse": "data/piloto/calculo-superficie/prueba-cdse-muestras-2021.json"
+  },
+  "validacion_forestal": {
+    "estado": "no_aprobada",
+    "completa": false,
+    "hallazgos": [
+      {
+        "codigo": "referencias_sin_revision_suficiente",
+        "detalle": {
+          "documentada": 0,
+          "pendiente": 1800,
+          "rechazada": 0
+        }
+      },
+      {
+        "codigo": "modelo_forestal_no_entrenado",
+        "detalle": "Los modelos existentes son auxiliares de arbolado 2021."
+      },
+      {
+        "codigo": "precision_forestal_y_cambio_no_validados",
+        "detalle": "No hay evaluación independiente ni incertidumbre forestal municipal."
+      },
+      {
+        "codigo": "cobertura_temporal_incompleta",
+        "detalle": "No se puede extrapolar automáticamente un total municipal."
+      }
+    ]
+  },
+  "pruebas_de_implementacion_habilitadas": true,
+  "publicar_estimaciones_forestales_actuales": false,
+  "proximos_requisitos": [
+    "Interpretar referencias públicas fechadas con calidad y resolución suficientes.",
+    "Evaluar un modelo forestal independiente y la incertidumbre de área y cambio.",
+    "Resolver o declarar la cobertura temporal incompleta por periodo."
+  ],
+  "evidencias_sha256": {
+    "data\\piloto\\validacion\\auditoria.json": "86a9c7b41f5d43d388b34384b261be5d453c4eb416de683ba2bda97ce4915365",
+    "data\\piloto\\calculo-superficie\\resultado.json": "ff158bd2a635a9c527431d8a8d9e293d7b802c85ae38604d9af73d231cb496e1",
+    "data\\piloto\\calculo-superficie\\pruebas-automaticas.json": "caa87537dd11e50fbbbfbc81791ab66650eb9bc5c53e339a68687f77df99c458",
+    "config\\metodologia-forestal.json": "2585577a4ed891285281f641247c74f390985acf339aa444dbbe89914afdc6f0"
+  }
+}

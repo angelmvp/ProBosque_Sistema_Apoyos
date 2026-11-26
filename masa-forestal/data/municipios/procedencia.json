@@ -1,0 +1,57 @@
+{
+  "fecha_descarga": "2026-11-25",
+  "documentacion": "https://www.inegi.org.mx/servicios/catalogounico.html",
+  "fuentes": [
+    {
+      "archivo": "inegi-catalogo-original.json",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/mgem/15",
+      "sha256": "cf14d09d1db9e158ac8a1fa7483225bc447388ef5ffc00fa61517dd2614f3a62",
+      "bytes": 24306
+    },
+    {
+      "archivo": "inegi-geometrias-original.geojson",
+      "url": "https://gaia.inegi.org.mx/wscatgeo/v2/geo/mgem/15",
+      "sha256": "06a6a751d37633af87490b316f149582c94a89b17584a03d9a09345351c8ed42",
+      "bytes": 4788888
+    }
+  ],
+  "validacion": {
+    "municipios": 125,
+    "geometrias": 125,
+    "claves_unicas": true,
+    "coincidencia_claves_y_nombres": true,
+    "anillos_cerrados": true,
+    "coordenadas_finitas_en_rango": true,
+    "vertices": 171888,
+    "validez_topologica": "125 geometrias validas; 7750 pares revisados; sin traslapes mayores a 1 m2. Sin contraste con union estatal independiente.",
+    "transformacion_a_crs_cdse": "EPSG:4326 por operacion PROJ registrada Mexico ITRF2008 to WGS 84 (1), exactitud declarada 1 m; sin ballpark.",
+    "informe_detallado": "validacion-geoespacial.json"
+  },
+  "piloto_propuesto": {
+    "cvegeo": "15110",
+    "nombre": "Valle de Bravo",
+    "periodo_anual": [
+      2024,
+      2025
+    ],
+    "periodo_bimestral": [
+      "2025-B1",
+      "2025-B2"
+    ],
+    "disponibilidad_cdse": "Pendiente de comprobar"
+  },
+  "derivados": [
+    {
+      "archivo": "municipios-wgs84.geojson",
+      "sha256": "5c38bba955bfb938ed8f3f2639abda7a547573e7481759f32f5f3f8ff1157c0a"
+    },
+    {
+      "archivo": "valle-de-bravo-wgs84.geojson",
+      "sha256": "1ea957e52aa006826ea2c2c3f917dac5af11080bdbb63eda5d3077cd252ade78"
+    },
+    {
+      "archivo": "validacion-geoespacial.json",
+      "sha256": "2a78f84e1c0f7cd678bdce705c61e92f0c76baba59e8415e301bd7898a11aa31"
+    }
+  ]
+}
